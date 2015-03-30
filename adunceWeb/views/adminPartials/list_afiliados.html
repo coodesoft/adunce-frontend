@@ -1,0 +1,15 @@
+
+<div class="container" ng-init="listAfiliados()">
+	<table style="width:100%">
+		<tr>
+			<th>Nombre</th>
+			<th>Mail</th>
+			<th>Estado</th>
+		</tr>
+		<tr ng-repeat="afiliado in afiliados">
+			<td>{{afiliado.username}}</td>
+			<td>{{afiliado.email}}</td>
+			<td>{{afiliado.enabled}}</td>
+		</tr>
+	</table>
+</div>

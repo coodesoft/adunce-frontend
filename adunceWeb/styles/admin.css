@@ -1,2 +1,4 @@
-  
-  background-color: rgb(28, 43, 54);
+.dashboard-admin .dash-header{color:#fff;font-size:15px}
+.dashboard-admin .left{height:500px;background-color:#1c2b36}.dashboard-admin .left ul{padding:0}
+.dashboard-admin .left li{list-style-position:inside;list-style-type:none}
+.dashboard-admin .left .action{color:#fff;cursor:pointer;font-size:15px;font-family:Verdana;margin:20px}.dashboard-admin .left .action:hover{text-decoration:none}

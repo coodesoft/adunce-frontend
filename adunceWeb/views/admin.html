@@ -1,11 +1,41 @@
 
-<div class="container dashboard admin">
-	<div class="left column col-md-2 col-lg-2">
-		<div class="admin-actions">
-			
+<div class="container dashboard-admin">
+	<div class="left column col-md-2 col-lg-2" ng-init=initDash()>
+		<div class="dash-header">{{title}}</div>
+		
+		<div class="dash-body">		
+			<div class="admin-actions">
+				<ul>
+					<li class="action-container" ng-repeat="section in sections">
+						<div class="action" ng-click="showActions()">{{section.name}}</div>
+							<ul ng-hide="visibility">
+								<li class="action" ng-repeat="action in section.actions">
+									<div class="action" ng-click="showSection(action.name)">{{action.name}}</div>
+								</li>
+							</ul>
+					</li>
+				</ul>
+			</div>
 		</div>
 	</div>
+	<div class="right column col-md-10 col-lg-10">
+		<div class="dash-header"></div>
+		<div class="dash-body">
+		  <div class="animate-switch-container" ng-switch on="activeSection">
+		      <div class="animate-switch" ng-switch-when="Listar">
+		      	<div ng-include="includeSection('list_afiliados')"></div>
+		      </div>
+		      <div class="animate-switch" ng-switch-when="Agregar">
+		      	<div ng-include="includeSection('add_afiliados')"></div>
+		      </div>
+		      <div class="animate-switch" ng-switch-when="Borrar">
+				<div ng-include="includeSection('delete_afiliados')"></div>
+			  </div>
+		      <div class="animate-switch" ng-switch-default>default</div>
+  </div>
+</div>
+		</div>
 		
-	<div class="right column col-md-10 col-lg-10"></div>	
+	</div>	
 </div>
 
