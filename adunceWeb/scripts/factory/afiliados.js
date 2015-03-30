@@ -1,5 +1,5 @@
 
-angular.module('adunceApp').factory('afiliados', ['$http', function($http){
+angular.module('MainApp').factory('afiliados', ['$http', function($http){
 	
 	var afiliados = {};
 	

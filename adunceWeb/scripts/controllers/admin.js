@@ -1,6 +1,5 @@
 
-
-angular.module('adunceApp').controller('AdminController', function($scope, afiliados){
+angular.module('MainApp').controller('AdminController', function($scope, afiliados){
 	
 	$scope.visibility = true;
 	

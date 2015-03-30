@@ -8,7 +8,7 @@
  * Main module of the application.
  */
 
-angular.module('adunceApp', [
+angular.module('MainApp', [
           'ngResource',
           'ngRoute'
        ]).config(function($routeProvider){
