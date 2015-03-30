@@ -3,6 +3,8 @@ angular.module('MainApp').controller('AdminController', function($scope, afiliad
 	
 	$scope.visibility = true;
 	
+	$scope.showMenu = false;
+	
 	$scope.initDash = function(){
 		$scope.title = 'Acciones';
 		$scope.sections = [
