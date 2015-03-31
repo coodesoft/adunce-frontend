@@ -10,9 +10,9 @@ angular.module('MainApp').controller('AdminController', function($scope, afiliad
 		$scope.sections = [
 		         { 'name': 'Afiliados',
 		           'actions' : [
-		                        { 'name' : 'Listar' },
-		                        { 'name' : 'Agregar' },
-		                        { 'name' : 'Borrar' },
+		                        { 'name' : 'Listar', icon:'glyphicon glyphicon-align-justify' },
+		                        { 'name' : 'Agregar', icon:'' },
+		                        { 'name' : 'Borrar', icon:'' },
 		                        ] 
 		        },
 		        { 'name': 'Servicios',
