@@ -4,6 +4,15 @@
 	padding: 0 0;
 }
 
+.content {
+	width: 100%;
+	margin: 2% 2% 2% 0;
+}
+
+.centered {
+	text-align: center;
+}
+
 body {
 	background: url('../img/bg-web.png') repeat scroll 0% 0% transparent;
 }
