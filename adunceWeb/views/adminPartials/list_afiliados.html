@@ -1,26 +1,20 @@
-
-<div class="container content" >
-	<div class="panel panel-active">
-  		<div class="panel-heading centered">
-  			Lista de afiliados
-  		</div>
-  		<div class="panel-body">
-    		<p>Se listan a continuación todos los afiliados.</p>
-  		</div>
-	
-		<div class="table-responsive">
-			<table class="table table-striped table-condensed" style="width:100%">
-				<tr>
-					<th>Nombre</th>
-					<th>Mail</th>
-					<th>Estado</th>
-				</tr>
-				<tr ng-repeat="afiliado in afiliados">
-					<td>{{afiliado.username}}</td>
-					<td>{{afiliado.email}}</td>
-					<td>{{afiliado.enabled}}</td>
-				</tr>
-			</table>
-		</div>
-	</div>
+<div class="panel-heading centered">
+	Lista de afiliados
+</div>
+<div class="panel-body">
+	<p>Se listan a continuación todos los afiliados.</p>
+</div>
+<div class="table-responsive">
+	<table class="table table-striped table-condensed" style="width:100%">
+		<tr>
+			<th>Nombre</th>
+			<th>Mail</th>
+			<th>Estado</th>
+		</tr>
+		<tr ng-repeat="afiliado in afiliados">
+			<td>{{afiliado.username}}</td>
+			<td>{{afiliado.email}}</td>
+			<td>{{afiliado.enabled}}</td>
+		</tr>
+	</table>
 </div>

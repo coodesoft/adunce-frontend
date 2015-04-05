@@ -1,0 +1,28 @@
+<div class="panel-heading centered">
+	Agregar afiliado
+</div>
+<div class="panel-body">
+	<form>
+		<div class="form-group">
+			<label for="nombre">Nombre:</label>
+			<input class="form-control" type="text" id="nombre" name="nombre" placeholder="John"/>
+		</div>
+		<div class="form-group">
+			<label for="apellido">Apellido:</label>
+			<input class="form-control" type="text" id="apellido" name="apellido" placeholder="Doe"/>
+		</div>
+		<div class="form-group">
+			<label for="email">Email:</label>
+			<input class="form-control" type="email" id="email" name="email" placeholder="email@example.com"/>
+		</div>
+		<div class="form-group col-xs-6">
+		<label for="grupo">Grupo</label>
+		<select class="form-control">
+			<option value=""><span th:text="#{cuenta.no_father}"></span></option>
+			<option th:each="c: ${cuentas}" th:value="${c.identificacion}">
+				<span th:text="${c.identificacion}"></span> - <span th:text="${c.nombre}"></span>
+			</option>
+		</select>
+	</div>
+	</form>
+</div>

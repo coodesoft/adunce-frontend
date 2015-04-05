@@ -56,3 +56,14 @@
 		};
 		
 	});
+	
+	app.directive("addAfiliado",function(){
+		
+		return {
+			restrict: 'E',
+			templateUrl: 'views/adminPartials/add_afiliados.html',
+			controller: "AfilaidosAdmController",
+			controllerAs: 'afAdmin'
+		};
+	});
+	

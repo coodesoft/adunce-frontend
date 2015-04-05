@@ -88,21 +88,25 @@
 	<div class="right column" ng-class="{'col-md-10':showMenu, 'col-lg-10':showMenu,'col-md-12':!showMenu, 'col-lg-12':!showMenu}">
 		<div class="dash-header"></div>
 		<div class="dash-body">
-		  <div class="animate-switch-container" ng-switch on="activeSection">
-		      <div class="animate-switch" ng-switch-when="Listar">
-		      	<!--div ng-include="includeSection('list_afiliados')"></div-->
-		      	<afiliados-list></afiliados-list>
-		      </div>
-		      <div class="animate-switch" ng-switch-when="Agregar">
-		      	<div ng-include="includeSection('add_afiliados')"></div>
-		      </div>
-		      <div class="animate-switch" ng-switch-when="Borrar">
-				<div ng-include="includeSection('delete_afiliados')"></div>
-			  </div>
-		      <div class="animate-switch" ng-switch-default>default</div>
-  </div>
-</div>
+			<div class="container content" >
+				<div class="panel panel-active">
+					<div class="animate-switch-container" ng-switch on="activeSection">
+					    <div class="animate-switch" ng-switch-when="Listar">
+					      	<!--div ng-include="includeSection('list_afiliados')"></div-->
+					      	<afiliados-list></afiliados-list>
+					    </div>
+					    <div class="animate-switch" ng-switch-when="Agregar">
+					      	<div ng-include="includeSection('add_afiliados')"></div>
+					    </div>
+					    <div class="animate-switch" ng-switch-when="Borrar">
+							<div ng-include="includeSection('delete_afiliados')"></div>
+						</div>
+					    <div class="animate-switch" ng-switch-default>default</div>
+		  			</div>
+  				</div>
+  			</div>
 		</div>
+	</div>
 		
 	</div>	
 </div>
