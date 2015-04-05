@@ -1,17 +1,26 @@
 
 <div class="container" ng-init="listAfiliados()">
-	<div class="table-responsive">
-		<table class="table table-striped" style="width:100%">
-			<tr>
-				<th>Nombre</th>
-				<th>Mail</th>
-				<th>Estado</th>
-			</tr>
-			<tr ng-repeat="afiliado in afiliados">
-				<td>{{afiliado.username}}</td>
-				<td>{{afiliado.email}}</td>
-				<td>{{afiliado.enabled}}</td>
-			</tr>
-		</table>
+	<div class="panel panel-info">
+  		<div class="panel-heading">
+  			Panel heading
+  		</div>
+  		<div class="panel-body">
+    		<p>...</p>
+  		</div>
+	
+		<div class="table-responsive">
+			<table class="table table-striped" style="width:100%">
+				<tr>
+					<th>Nombre</th>
+					<th>Mail</th>
+					<th>Estado</th>
+				</tr>
+				<tr ng-repeat="afiliado in afiliados">
+					<td>{{afiliado.username}}</td>
+					<td>{{afiliado.email}}</td>
+					<td>{{afiliado.enabled}}</td>
+				</tr>
+			</table>
+		</div>
 	</div>
 </div>
