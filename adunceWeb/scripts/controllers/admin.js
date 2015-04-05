@@ -1,12 +1,11 @@
-(function(){
 	
 	var app = angular.module('MainApp');
 	
-	app.controller('AdminController', function($scope, afiliados){
+	app.controller('AdminController', function($scope, afiliadosFactory){
 		
 		$scope.visibility = true;
 		
-		$scope.showMenu = false;
+		$scope.showMenu = true;
 		
 		$scope.initDash = function(){
 			$scope.title = 'Acciones';
@@ -40,7 +39,7 @@
 	    };
 	    
 	    $scope.listAfiliados = function(){
-	    	afiliados.getAfiliados().success(function(data){
+	    	afiliadosFactory.getAfiliados().success(function(data){
 	    		$scope.afiliados = data;
 	    	});
 	    };
@@ -52,9 +51,8 @@
 		return {
 			restrict: 'E',
 			templateUrl: 'views/adminPartials/list_afiliados.html',
-			controller: 'AfiliadosAdmController'
+			controller: 'AfiliadosAdmController',
+			controllerAs: 'afAdmin'
 		};
 		
 	});
-
-})

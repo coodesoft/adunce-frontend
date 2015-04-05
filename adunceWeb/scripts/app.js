@@ -15,6 +15,7 @@ angular.module('MainApp', [
     	   $routeProvider
     	   	.when('/admin', {
     	   		templateUrl: 'views/admin.html',
-    	   		controller: 'AdminController'
+    	   		controller: 'AdminController',
+    	   		controllerAs: 'admin'
     	   	})
        })
