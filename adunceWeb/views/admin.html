@@ -41,10 +41,10 @@
 			<div class="admin-actions">
 				<ul>
 					<li class="action-container" ng-repeat="section in sections">
-						<div class="action" ng-click="showActions()">{{section.name}}</div>
-						<ul ng-hide="visibility">
+						<div class="action" ng-click="isCollapsed = !isCollapsed">{{section.name}}</div>
+						<ul ng-class="{'collapsed':isCollapsed, 'no-collapsed':!isCollapsed}">
 							<li class="action" ng-repeat="action in section.actions">
-								<div class="action" ng-click="showSection(action.name)">{{action.name}}</div>
+								<div class="action" ng-click="showSection(action.name+section.name)">{{action.name}}</div>
 							</li>
 						</ul>
 					</li>
@@ -58,15 +58,15 @@
 			<div class="container content" >
 				<div class="panel panel-active">
 					<div class="animate-switch-container" ng-switch on="activeSection">
-					    <div class="animate-switch" ng-switch-when="Listar">
+					    <div class="animate-switch" ng-switch-when="ListarAfiliados">
 					      	<!--div ng-include="includeSection('list_afiliados')"></div-->
 					      	<afiliados-list></afiliados-list>
 					    </div>
-					    <div class="animate-switch" ng-switch-when="Agregar">
+					    <div class="animate-switch" ng-switch-when="AgregarAfiliados">
 					      	<!--div ng-include="includeSection('add_afiliados')"></div-->
 					      	<add-afiliado></add-afiliado>
 					    </div>
-					    <div class="animate-switch" ng-switch-when="Borrar">
+					    <div class="animate-switch" ng-switch-when="BorrarAfiliados">
 							<div ng-include="includeSection('delete_afiliados')"></div>
 						</div>
 					    <div class="animate-switch" ng-switch-default>default</div>

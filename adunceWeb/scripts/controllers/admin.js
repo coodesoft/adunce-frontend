@@ -33,11 +33,7 @@
 		$scope.includeSection = function(section){
 			return "views/adminPartials/"+section+".html";
 		};
-		
-		$scope.showActions = function() {
-	        $scope.visibility = $scope.visibility === false ? true: false;
-	    };
-	    
+
 	    $scope.listAfiliados = function(){
 	    	afiliadosFactory.getAfiliados().success(function(data){
 	    		$scope.afiliados = data;
@@ -46,24 +42,4 @@
 	    
 	});
 	
-app.directive("addAfiliado",function(){
-		
-		return {
-			restrict: 'E',
-			templateUrl: 'views/adminPartials/add_afiliados.html',
-			controller: 'AfiliadosAdmController',
-			controllerAs: 'afAdmin'
-		};
-	});
-	
-	app.directive("afiliadosList",function(){
-		
-		return {
-			restrict: 'E',
-			templateUrl: 'views/adminPartials/list_afiliados.html',
-			controller: 'AfiliadosAdmController',
-			controllerAs: 'afAdmin'
-		};
-		
-	});
 	

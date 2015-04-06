@@ -1,4 +1,6 @@
+
 var app = angular.module('MainApp');
+
 app.factory('afiliadosFactory', ['$http', function($http){
 	
 	var afiliadosFactory = {};
