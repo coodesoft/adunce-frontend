@@ -15,14 +15,13 @@
 			<label for="email">Email:</label>
 			<input class="form-control" type="email" id="email" name="email" placeholder="email@example.com"/>
 		</div>
-		<div class="form-group col-xs-6">
-		<label for="grupo">Grupo</label>
-		<select class="form-control">
-			<option value=""><span th:text="#{cuenta.no_father}"></span></option>
-			<option th:each="c: ${cuentas}" th:value="${c.identificacion}">
-				<span th:text="${c.identificacion}"></span> - <span th:text="${c.nombre}"></span>
-			</option>
-		</select>
-	</div>
+		<div class="form-group">
+			<label for="grupo">Grupo</label>
+			<select class="form-control">
+				<option ng-repeat="grupo in grupos" value="grupo.nombre">
+					<span>{{grupo.shortname}}</span> - <span>{{grupo.nombre}}</span>
+				</option>
+			</select>
+		</div>
 	</form>
 </div>

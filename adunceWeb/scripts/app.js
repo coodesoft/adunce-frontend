@@ -11,7 +11,7 @@ var app = angular.module('MainApp', [
                                      'ngResource',
                                      'ngRoute'
                                   ]);
-app.server = "http://dev.coodesoft.com.ar:8080/adunce"
+app.server = "http://localhost:8080/gestion"
 app.config(function($routeProvider){
     	   $routeProvider
     	   	.when('/admin', {
