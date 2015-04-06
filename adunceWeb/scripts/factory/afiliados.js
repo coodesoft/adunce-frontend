@@ -1,10 +1,10 @@
-
-angular.module('MainApp').factory('afiliadosFactory', ['$http', function($http){
+var app = angular.module('MainApp');
+app.factory('afiliadosFactory', ['$http', function($http){
 	
 	var afiliadosFactory = {};
 	
 	afiliadosFactory.getAfiliados = function(){
-		return $http.get('http://dev.coodesoft.com.ar:8080/adunce/REST/afiliados')
+		return $http.get(app.server + '/REST/afiliados')
 	};
 	
 	return afiliadosFactory;

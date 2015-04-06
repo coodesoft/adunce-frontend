@@ -7,15 +7,16 @@
  *
  * Main module of the application.
  */
-
-angular.module('MainApp', [
-          'ngResource',
-          'ngRoute'
-       ]).config(function($routeProvider){
+var app = angular.module('MainApp', [
+                                     'ngResource',
+                                     'ngRoute'
+                                  ]);
+app.server = "http://dev.coodesoft.com.ar:8080/adunce"
+app.config(function($routeProvider){
     	   $routeProvider
     	   	.when('/admin', {
     	   		templateUrl: 'views/admin.html',
     	   		controller: 'AdminController',
     	   		controllerAs: 'admin'
     	   	})
-       })
+       });
