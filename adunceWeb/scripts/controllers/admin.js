@@ -29,20 +29,7 @@
 				                	   {'name' : 'Agregar'},
 				                   ]
 				    },
-				    {
-				      'name': 'Grupos',
-				      'actions' : [
-				                	   {'name' : 'Listar'},
-				                	   {'name' : 'Agregar'},
-				                   ]
-				    },
-				    {
-				      'name': 'Grupos',
-				      'actions' : [
-				                	   {'name' : 'Listar'},
-				                	   {'name' : 'Agregar'},
-				                   ]
-				    },
+			        
 			     ];
 		};
 		

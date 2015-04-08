@@ -26,5 +26,5 @@
 		/*
 		 * End initialization
 		 */
-		
+		$('select').select2();
 	});
