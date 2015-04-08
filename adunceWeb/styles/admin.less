@@ -1,13 +1,17 @@
+@import "variables.less";
   
   
 .dashboard-admin{
+	> div {
+		padding: 0;
+	}
 	.dash-header{
-		color: white;
+		color: @dashTextColor;
 		font-size: 15px;
 	}
 	.left{
 		height: 500px;
-		background-color: rgb(28, 43, 54);
+		background-color: @dashBackground;
 		ul{
 			padding: 0;
 		}
@@ -15,16 +19,24 @@
 			list-style-position: inside;
 			list-style-type: none;
 		}
-		.action{
-			color: white;
+		.action, .section{
+			color: @dashTextColor;
 			cursor: pointer;
 			font-size: 15px;
 			font-family: Verdana;
-			margin: 20px;
+			padding: 20px;
 			&:hover{
 				text-decoration: none;
 				
 			}
+		}
+		
+		.section{
+			border-bottom: 1px solid @dashBorder;
+		}
+		.active{
+			background: @dashActiveBackground;
+			
 		}
 	}
 } 

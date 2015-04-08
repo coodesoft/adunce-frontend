@@ -8,7 +8,7 @@
 		$scope.showMenu = true;
 		
 		$scope.initDash = function(){
-			$scope.title = 'Acciones';
+			$scope.title = 'Menú';
 			$scope.sections = [
 			         { 'name': 'Afiliados',
 			           'actions' : [
@@ -22,7 +22,27 @@
 				                    { 'name' : 'Listar' },
 				                    ] 
 				    },
-			        
+				    {
+				      'name': 'Grupos',
+				      'actions' : [
+				                	   {'name' : 'Listar'},
+				                	   {'name' : 'Agregar'},
+				                   ]
+				    },
+				    {
+				      'name': 'Grupos',
+				      'actions' : [
+				                	   {'name' : 'Listar'},
+				                	   {'name' : 'Agregar'},
+				                   ]
+				    },
+				    {
+				      'name': 'Grupos',
+				      'actions' : [
+				                	   {'name' : 'Listar'},
+				                	   {'name' : 'Agregar'},
+				                   ]
+				    },
 			     ];
 		};
 		

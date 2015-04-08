@@ -41,10 +41,10 @@
 			<div class="admin-actions">
 				<ul>
 					<li class="action-container" ng-repeat="section in sections">
-						<div class="action" ng-click="isCollapsed = !isCollapsed">{{section.name}}</div>
-						<ul ng-class="{'collapsed':isCollapsed, 'no-collapsed':!isCollapsed}">
+						<div class="section" ng-class="{'active':isCollapsed, '':!isCollapsed}" ng-click="isCollapsed = !isCollapsed">{{section.name}}</div>
+						<ul ng-class="{'collapsed':!isCollapsed, 'no-collapsed':isCollapsed}">
 							<li class="action" ng-repeat="action in section.actions">
-								<div class="action" ng-click="showSection(action.name+section.name)">{{action.name}}</div>
+								<div ng-click="showSection(action.name+section.name)">{{action.name}}</div>
 							</li>
 						</ul>
 					</li>
