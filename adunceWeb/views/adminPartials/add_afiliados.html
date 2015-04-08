@@ -17,10 +17,10 @@
 		</div>
 		<div class="form-group">
 			<label for="grupo">Grupo</label>
-			<select class="form-control select2" multiple="multiple">
-				<option ng-repeat="grupo in grupos" value="grupo.shortname">
+			<select class="form-control select2" ng-options="grupo.shortname as grupo.nombre in grupos" multiple="multiple">
+				<!-- option ng-repeat="grupo in grupos" ng-value="{{grupo.shortname}}">
 					{{grupo.shortname}} - {{grupo.nombre}}
-				</option>
+				</option-->
 			</select>
 		</div>
 	</form>
