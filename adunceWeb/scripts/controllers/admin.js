@@ -22,6 +22,13 @@
 				                    { 'name' : 'Listar' },
 				                    ] 
 				    },
+				    {
+				      'name': 'Grupos',
+				      'actions' : [
+				                	   {'name' : 'Listar'},
+				                	   {'name' : 'Agregar'},
+				                   ]
+				    },
 			        
 			     ];
 		};

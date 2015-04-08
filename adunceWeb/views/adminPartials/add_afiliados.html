@@ -17,9 +17,9 @@
 		</div>
 		<div class="form-group">
 			<label for="grupo">Grupo</label>
-			<select class="form-control">
-				<option ng-repeat="grupo in grupos" value="grupo.nombre">
-					<span>{{grupo.shortname}}</span> - <span>{{grupo.nombre}}</span>
+			<select class="form-control select2" multiple="multiple">
+				<option ng-repeat="grupo in grupos" value="grupo.shortname">
+					{{grupo.shortname}} - {{grupo.nombre}}
 				</option>
 			</select>
 		</div>
