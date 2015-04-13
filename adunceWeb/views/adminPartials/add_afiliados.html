@@ -24,6 +24,15 @@
 			<label for="email">Email:</label>
 			<input class="form-control" type="email" id="email" name="email" ng-model="newAfiliado.email" placeholder="email@example.com"/>
 		</div>
+		<div class="form-group">
+			<label for="grupos">Grupos</label>
+			<ui-select name="grupos" id="grupos" multiple ng-model="newAfiliado.grupos">
+				<ui-select-match placeholder="">{{$item.shortname}} - {{$item.nombre}}</ui-select-match>
+				<ui-select-choices repeat="grupo.shortname as grupo in grupos">
+					<span>{{grupo.nombre}}</span>
+				</ui-select-choices>
+			</ui-select>
+		</div>
 		<div class="panel panel-default">
 		  	<!-- Default panel contents -->
 		  	<div class="panel-heading">Hijos</div>
@@ -44,7 +53,7 @@
 					<div class="form-group col-md-6 col-md-6 col-xs-12">
 			            <label for="fechaNacimiento">Fecha Nacimiento:</label>
 			            <p class="input-group">
-			              <input type="text" class="form-control" name="fechaNacimiento" id="fechaNacimiento" datepicker-append-to-body="true" datepicker-popup="dd-MMMM-yyyy" ng-model="newHijo.fechaNacimiento" is-open="opened" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+			              <input type="text" class="form-control" name="fechaNacimiento" id="fechaNacimiento" datepicker-append-to-body="true" datepicker-popup="dd-MMMM-yyyy" ng-model="newHijo.fechaNacimiento" is-open="opened" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" close-text="Close" />
 			              <span class="input-group-btn">
 			                <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
 			              </span>
@@ -70,14 +79,6 @@
 					</tr>
 				</tbody>
 			</table>
-		</div>
-		<div class="form-group">
-			<label for="grupo">Grupo</label>
-			<select class="form-control"  multiple="multiple">
-				<option ng-repeat="grupo in grupos" ng-value="{{grupo.shortname}}">
-					{{grupo.shortname}} - {{grupo.nombre}}
-				</option>
-			</select>
 		</div>
 		<div class="form-group">
 			<input class="btn btn-default" type="submit" value="Agregar Afiliado"></button>
