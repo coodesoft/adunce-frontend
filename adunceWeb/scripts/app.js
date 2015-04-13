@@ -10,7 +10,9 @@
 var app = angular.module('MainApp', [
                                      'ngResource',
                                      'ngRoute',
-                                     'ui.bootstrap'
+                                     'ui.bootstrap',
+                                     'ngSanitize',
+                                     'ui.select'
                                   ]);
 app.server = "http://dev.coodesoft.com.ar:8080/adunce"
 	
