@@ -13,9 +13,7 @@
 		$scope.grupos = {};
 		$scope.newAfiliado = {};
 		$scope.newAfiliado.hijos = [];
-		$scope.newHijo = {
-							'fechaNacimiento': new Date('dd-MM-yyyy').getDay()
-							};
+		$scope.newHijo = {};
 		$scope.sexoOpts=[
 		                 	{
 		                 		"id":"masculino",
@@ -30,6 +28,10 @@
 		$scope.addHijo = function(){
 			$scope.newAfiliado.hijos.push($scope.newHijo);
 			$scope.newHijo = {};
+		}
+		
+		$scope.removeHijo = function(index){
+			$scope.newAfiliado.hijos.splice(index,1);
 		}
 		
 		afiliadosFactory.getAfiliados().success(function(data){
@@ -62,7 +64,7 @@
 			$scope.newHijo.fechaNacimiento = new Date();
 			$scope.dt = new Date();
 		  };
-		  $scope.today();
+		  
 
 		  $scope.clear = function () {
 		    $scope.newHijo.fechaNacimiento = null;
@@ -79,7 +81,7 @@
 		  $scope.toggleMin();
 
 		  $scope.open = function($event) {
-		    $event.preventDefault();
+		    //$event.preventDefault();
 		    $event.stopPropagation();
 
 		    $scope.opened = true;
@@ -90,6 +92,4 @@
 		    startingDay: 1
 		  };
 
-		  $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
-		  $scope.format = $scope.formats[0];
 	});
