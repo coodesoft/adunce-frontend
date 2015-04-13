@@ -2,26 +2,36 @@
 	Agregar afiliado
 </div>
 <div class="panel-body">
-	<form>
+	<form name="addAfiliadoForm" 
+			ng-submit="addAfiliadoForm.$valid && addAfiliado()">
 		<div class="form-group">
 			<label for="nombre">Nombre:</label>
-			<input class="form-control" type="text" id="nombre" name="nombre" placeholder="John"/>
+			<input class="form-control" type="text" ng-model="newAfiliado.nombre" id="nombre" name="nombre" placeholder="John"/>
 		</div>
 		<div class="form-group">
 			<label for="apellido">Apellido:</label>
-			<input class="form-control" type="text" id="apellido" name="apellido" placeholder="Doe"/>
+			<input class="form-control" type="text" id="apellido" name="apellido" ng-model="newAfiliado.apellido" placeholder="Doe"/>
+		</div>
+		<div class="form-group">
+			<label for="nombre-usuario">Nombre de usuario:</label>
+			<input class="form-control" type="text" ng-model="newAfiliado.username" id="nombre-usuario" name="nombre-usuario" placeholder="jdoe"/>
+		</div>
+		<div class="form-group">
+			<label for="passwrd">Nombre:</label>
+			<input class="form-control" type="password" ng-model="newAfiliado.passsword" id="password" name="password" placeholder="John"/>
 		</div>
 		<div class="form-group">
 			<label for="email">Email:</label>
-			<input class="form-control" type="email" id="email" name="email" placeholder="email@example.com"/>
+			<input class="form-control" type="email" id="email" name="email" ng-model="newAfiliado.email" placeholder="email@example.com"/>
 		</div>
 		<div class="form-group">
 			<label for="grupo">Grupo</label>
-			<select class="form-control select2"  multiple="multiple">
+			<select class="form-control"  multiple="multiple">
 				<option ng-repeat="grupo in grupos" ng-value="{{grupo.shortname}}">
 					{{grupo.shortname}} - {{grupo.nombre}}
 				</option>
 			</select>
 		</div>
+		<input type="submit">Agregar</button>
 	</form>
 </div>

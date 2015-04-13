@@ -11,6 +11,7 @@
 		 * */
 		$scope.afiliados = {};
 		$scope.grupos = {};
+		$scope.newAfiliado = {};
 		
 		afiliadosFactory.getAfiliados().success(function(data){
 			$scope.afiliados=data;
@@ -23,6 +24,16 @@
 		}).error(function(data){
 			$scope.grupos={};
 		});
+		
+		$scope.addAfiliado = function(){
+			alert($scope.newAfiliado.username)
+			afiliadosFactory.addAfiliado($scope.newAfiliado).success(function(data){
+				alert("OK");
+			}).error(function(data){
+				alert("Error");
+			});
+			$scope.newAfiliado = {};
+		};
 		/*
 		 * End initialization
 		 */
