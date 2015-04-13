@@ -36,15 +36,14 @@
 </nav>
 <div class="container-full dashboard-admin">
 	<div ng-show="showMenu" class="left column col-md-2 col-lg-2" ng-init=initDash()>
-		<div class="dash-header">{{title}}</div>
 		<div class="dash-body">		
 			<div class="admin-actions">
 				<ul>
-					<li class="action-container" ng-repeat="section in sections">
-						<div class="section" ng-class="{'active':isCollapsed, '':!isCollapsed}" ng-click="isCollapsed = !isCollapsed">{{section.name}}</div>
-						<ul ng-class="{'collapsed':!isCollapsed, 'no-collapsed':isCollapsed}">
+					<li class="section-container" ng-repeat="section in sections">
+						<div class="section" ng-class="{'active':isCollapsed, '':!isCollapsed}" ng-click="isCollapsed = !isCollapsed"><span class="dash-icon {{section.icon}}"></span>{{section.name}}</div>
+						<ul class="action-container" ng-class="{'collapsed':!isCollapsed, 'no-collapsed':isCollapsed}">
 							<li class="action" ng-repeat="action in section.actions">
-								<div ng-click="showSection(action.name+section.name)">{{action.name}}</div>
+								<span class="dash-icon {{action.icon}}"></span><div ng-click="showSection(action.name+section.name)">{{action.name}}</div>
 							</li>
 						</ul>
 					</li>
