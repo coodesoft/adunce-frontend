@@ -8,24 +8,26 @@
 		$scope.showMenu = true;
 		
 		$scope.initDash = function(){
-			$scope.title = 'Menú';
 			$scope.sections = [
 			         { 'name': 'Afiliados',
+			           'icon': 'glyphicon glyphicon-user',
 			           'actions' : [
-			                        { 'name' : 'Listar', icon:'glyphicon glyphicon-align-justify' },
-			                        { 'name' : 'Agregar', icon:'' },
-			                        { 'name' : 'Borrar', icon:'' },
+			                        { 'name' : 'Listar', 'icon':'glyphicon glyphicon-align-justify' },
+			                        { 'name' : 'Agregar', 'icon':'' },
+			                        { 'name' : 'Borrar', 'icon':'' },
 			                        ] 
 			        },
 			        { 'name': 'Servicios',
+			          'icon': 'glyphicon glyphicon-flash',
 				       'actions' : [
-				                    { 'name' : 'Listar' },
+				                    { 'name' : 'Listar','icon':'glyphicon glyphicon-align-justify'  },
 				                    ] 
 				    },
 				    {
 				      'name': 'Grupos',
+				      'icon': 'glyphicon glyphicon-user',
 				      'actions' : [
-				                	   {'name' : 'Listar'},
+				                	   {'name' : 'Listar', 'icon':'glyphicon glyphicon-align-justify'},
 				                	   {'name' : 'Agregar'},
 				                   ]
 				    },

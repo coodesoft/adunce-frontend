@@ -5,15 +5,15 @@
 	> div {
 		padding: 0;
 	}
-	.dash-header{
-		color: @dashTextColor;
-		font-size: 15px;
+	.action-container{
+		margin-left: 10%;	
 	}
+	
 	.left{
 		height: 500px;
 		background-color: @dashBackground;
 		ul{
-			padding: 0;
+			padding: 0 3px;
 		}
 		li{
 			list-style-position: inside;
@@ -25,18 +25,28 @@
 			font-size: 15px;
 			font-family: Verdana;
 			padding: 20px;
+			width: 100%;
+			float:left;
 			&:hover{
 				text-decoration: none;
 				
+			}
+			> div{
+				display: inline-block;
 			}
 		}
 		
 		.section{
 			border-bottom: 1px solid @dashBorder;
+			border-top: 1px solid @dashBorder;
+			margin-top: -1px;
 		}
 		.active{
 			background: @dashActiveBackground;
 			
+		}
+		.dash-icon{
+			margin-right: 7px;	
 		}
 	}
 } 
