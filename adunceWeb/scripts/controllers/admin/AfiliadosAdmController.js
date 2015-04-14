@@ -13,6 +13,7 @@
 		$scope.grupos = {};
 		$scope.newAfiliado = {};
 		$scope.newAfiliado.hijos = [];
+		$scope.newAfiliado.grupos = [];
 		$scope.newHijo = {};
 		$scope.sexoOpts=[
 		                 	{
