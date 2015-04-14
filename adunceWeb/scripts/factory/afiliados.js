@@ -13,5 +13,9 @@ app.factory('afiliadosFactory', ['$http', function($http){
 		return $http.post(app.server+'/REST/afiliados',afiliado);
 	};
 	
+	afiliadosFactory.removeAfiliado = function(afiliado){
+		return $http.delete(app.server+'/REST/afiliados/'+afiliado.username);
+	};
+	
 	return afiliadosFactory;
 }])

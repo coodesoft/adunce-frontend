@@ -54,14 +54,23 @@
 		});
 		
 		$scope.addAfiliado = function(){
-			alert($scope.newAfiliado.username)
 			afiliadosFactory.addAfiliado($scope.newAfiliado).success(function(data){
-				alert("OK");
+				//$scope.cargarAfiliados();
 			}).error(function(data){
-				alert("Error");
+				//alert("Error");
 			});
 			$scope.newAfiliado = {};
 		};
+		
+		$scope.removeAfiliado = function(index){
+			afiliadosFactory.removeAfiliado($scope.afiliados[index]).success(function(data){
+				$scope.afiliados.splice(index,1);
+			}).error(function(data){
+				//alert("Error");
+			});
+			
+		};
+		
 		/*
 		 * End initialization
 		 */

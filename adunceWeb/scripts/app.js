@@ -22,5 +22,10 @@ app.config(function($routeProvider){
     	   		templateUrl: 'views/admin.html',
     	   		controller: 'AdminController',
     	   		controllerAs: 'admin'
+    	   	});
+    	   $routeProvider.when('/alta', {
+    	   		templateUrl: 'views/admin.html',
+    	   		controller: 'AdminController',
+    	   		controllerAs: 'admin'
     	   	})
        });
