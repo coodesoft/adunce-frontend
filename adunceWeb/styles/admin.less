@@ -1,5 +1,8 @@
 @import "variables.less";
   
+html{
+	height: 100%;
+}
   
 .dashboard-admin{
 	> div {
@@ -10,7 +13,6 @@
 	}
 	
 	.left{
-		height: 500px;
 		background-color: @dashBackground;
 		ul{
 			padding: 0 3px;
@@ -18,7 +20,7 @@
 		li{
 			list-style-position: inside;
 			list-style-type: none;
-		}
+		}	
 		.action, .section{
 			color: @dashTextColor;
 			cursor: pointer;
