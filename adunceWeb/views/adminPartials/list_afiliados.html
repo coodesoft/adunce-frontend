@@ -11,12 +11,20 @@
 			<th>Apellido</th>
 			<th>Mail</th>
 			<th>Estado</th>
+			<th>Acciones</th>
 		</tr>
 		<tr ng-repeat="afiliado in afiliados">
 			<td>{{afiliado.nombre}}</td>
 			<td>{{afiliado.apellido}}</td>
 			<td>{{afiliado.email}}</td>
-			<td>{{afiliado.enabled?"activo":"inactivo"}}</td>
+			<td>
+				<span class="glyphicon glyphicon-remove" ng-show="!afiliado.enabled"></span>
+				<span class="glyphicon glyphicon-ok" ng-show="afiliado.enabled"></span>
+			</td>
+			<td>
+				<div class="btn" href="" ng-click="removeAfiliado($index)"><span class="glyphicon glyphicon-pencil"></span></div>
+				<div class="btn" href="" ng-click="removeAfiliado($index)"><span class="glyphicon glyphicon-trash"></span></div>
+			</td>
 		</tr>
 	</table>
 </div>

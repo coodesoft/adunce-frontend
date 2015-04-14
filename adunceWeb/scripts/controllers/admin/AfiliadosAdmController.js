@@ -9,6 +9,8 @@
 		/*
 		 * Initiallization
 		 * */
+		$scope.edit = angular.isDefined($scope.edit) ? $scope.edit : false;
+		
 		$scope.afiliados = {};
 		$scope.grupos = {};
 		$scope.newAfiliado = {};
@@ -33,6 +35,10 @@
 		
 		$scope.removeHijo = function(index){
 			$scope.newAfiliado.hijos.splice(index,1);
+		}
+		
+		$scope.removeAfiliado = function(index){
+			alert(index);
 		}
 		
 		afiliadosFactory.getAfiliados().success(function(data){
