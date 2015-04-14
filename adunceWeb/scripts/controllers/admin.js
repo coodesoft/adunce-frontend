@@ -19,13 +19,11 @@
 					if ($scope.dashstatus == 'hide')
 						$scope.dashstatus = 'standard';
  
-			alert($scope.dashstatus);
 		};
 		
 		$scope.initDash = function(){
 			 $(window).resize(function(){
 				    $('#dashboard').css('height',($(this).height()-$('#dashboard').position().top));
-				    alert($('#dashboard').position().top);
 			 });
 			
 			 $(function(){

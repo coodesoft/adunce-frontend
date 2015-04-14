@@ -39,44 +39,8 @@
 
 <section id="adminArea">
 	<div class="container-full dashboard-admin">
-		<div ng-switch on="dashstatus">
-			<div ng-switch-when="standard">
-				<div id="dashboard" class="left column col-md-2 col-lg-2" ng-init=initDash()>
-					<div class="dash-body">		
-						<div class="admin-actions">
-							<ul>
-								<li class="section-container" ng-repeat="section in sections">
-									<div class="section" ng-class="{'active':isCollapsed, '':!isCollapsed}" ng-click="isCollapsed = !isCollapsed"><span class="dash-icon {{section.icon}}"></span>{{section.name}}</div>
-									<ul class="action-container" ng-class="{'collapsed':!isCollapsed, 'no-collapsed':isCollapsed}">
-										<li class="action" ng-repeat="action in section.actions">
-											<span class="dash-icon {{action.icon}}"></span><div ng-click="showSection(action.name+section.name)">{{action.name}}</div>
-										</li>
-									</ul>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div ng-switch-when="minimal">
-				<div id="dashboard" class="left column col-md-1 col-lg-1" ng-init=initDash()>
-					<div class="dash-body">		
-						<div class="admin-actions">
-							<ul>
-								<li class="section-container" ng-repeat="section in sections">
-									<div class="section" ng-class="{'active':isCollapsed, '':!isCollapsed}" ng-click="isCollapsed = !isCollapsed"><span class="dash-icon {{section.icon}}"></span></div>
-									<ul class="action-container" ng-class="{'collapsed':!isCollapsed, 'no-collapsed':isCollapsed}">
-										<li class="action" ng-repeat="action in section.actions">
-											<span class="dash-icon {{action.icon}}"></span><div ng-click="showSection(action.name+section.name)"></div>
-										</li>
-									</ul>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+		<div ng-include="includeSection('dashboard')"></div>
+		
 		<div class="right column" ng-class="{'col-md-10':showMenu, 'col-lg-10':showMenu,'col-md-12':!showMenu, 'col-lg-12':!showMenu}">
 			<div class="dash-header"></div>
 			<div class="dash-body">
