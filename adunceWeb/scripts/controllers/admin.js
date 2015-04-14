@@ -5,16 +5,40 @@
 		
 		$scope.visibility = true;
 		
-		$scope.showMenu = true;
+		
+		$scope.dashstatus = 'standard';
+		
+		$scope.showMenu = function(){
+			
+			if ($scope.dashstatus == 'standard')
+				$scope.dashstatus = 'minimal';
+			else 
+				if ($scope.dashstatus == 'minimal')
+					$scope.dashstatus = 'hide';
+				else
+					if ($scope.dashstatus == 'hide')
+						$scope.dashstatus = 'standard';
+ 
+			alert($scope.dashstatus);
+		};
 		
 		$scope.initDash = function(){
+			 $(window).resize(function(){
+				    $('#dashboard').css('height',($(this).height()-$('#dashboard').position().top));
+				    alert($('#dashboard').position().top);
+			 });
+			
+			 $(function(){
+				 $('#dashboard').css('height',($(this).height()-$('#dashboard').position().top));
+			 });
+			 
 			$scope.sections = [
 			         { 'name': 'Afiliados',
 			           'icon': 'glyphicon glyphicon-user',
 			           'actions' : [
 			                        { 'name' : 'Listar', 'icon':'glyphicon glyphicon-align-justify' },
-			                        { 'name' : 'Agregar', 'icon':'' },
-			                        { 'name' : 'Borrar', 'icon':'' },
+			                        { 'name' : 'Agregar', 'icon':'glyphicon glyphicon-plus' },
+			                        { 'name' : 'Borrar', 'icon':'glyphicon glyphicon-minus' },
 			                        ] 
 			        },
 			        { 'name': 'Servicios',
@@ -28,7 +52,8 @@
 				      'icon': 'glyphicon glyphicon-user',
 				      'actions' : [
 				                	   {'name' : 'Listar', 'icon':'glyphicon glyphicon-align-justify'},
-				                	   {'name' : 'Agregar'},
+				                	   { 'name' : 'Agregar', 'icon':'glyphicon glyphicon-plus' },
+					                   { 'name' : 'Borrar', 'icon':'glyphicon glyphicon-minus' },
 				                   ]
 				    },
 			        

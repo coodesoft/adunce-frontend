@@ -1,6 +1,7 @@
+html{height:100%}
 .dashboard-admin>div{padding:0}
 .dashboard-admin .action-container{margin-left:10%}
-.dashboard-admin .left{height:500px;background-color:#1c2b36}.dashboard-admin .left ul{padding:0 3px}
+.dashboard-admin .left{background-color:#1c2b36}.dashboard-admin .left ul{padding:0 3px}
 .dashboard-admin .left li{list-style-position:inside;list-style-type:none}
 .dashboard-admin .left .action,.dashboard-admin .left .section{color:#b3b3b3;cursor:pointer;font-size:15px;font-family:Verdana;padding:20px;width:100%;float:left}.dashboard-admin .left .action:hover,.dashboard-admin .left .section:hover{text-decoration:none}
 .dashboard-admin .left .action>div,.dashboard-admin .left .section>div{display:inline-block}
