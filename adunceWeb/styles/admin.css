@@ -1,10 +1,11 @@
 html{height:100%}
-.dashboard-admin>div{padding:0}
+#dashboard{padding:0}
 .dashboard-admin .action-container{margin-left:10%}
 .dashboard-admin .left{background-color:#1c2b36}.dashboard-admin .left ul{padding:0 3px}
 .dashboard-admin .left li{list-style-position:inside;list-style-type:none}
 .dashboard-admin .left .action,.dashboard-admin .left .section{color:#b3b3b3;cursor:pointer;font-size:15px;font-family:Verdana;padding:20px;width:100%;float:left}.dashboard-admin .left .action:hover,.dashboard-admin .left .section:hover{text-decoration:none}
-.dashboard-admin .left .action>div,.dashboard-admin .left .section>div{display:inline-block}
+.dashboard-admin .left .action .action-item,.dashboard-admin .left .section .action-item{display:inline-block}
 .dashboard-admin .left .section{border-bottom:1px solid #666;border-top:1px solid #666;margin-top:-1px}
 .dashboard-admin .left .active{background:#1c272d}
 .dashboard-admin .left .dash-icon{margin-right:7px}
+.dashboard-admin .left .minimal .section-container{text-align:center}

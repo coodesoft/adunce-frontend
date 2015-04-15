@@ -3,15 +3,17 @@
 html{
 	height: 100%;
 }
-  
+#dashboard {
+	padding: 0;
+}
+
 .dashboard-admin{
-	> div {
-		padding: 0;
-	}
+
 	.action-container{
 		margin-left: 10%;	
 	}
-	
+
+	//dashboard
 	.left{
 		background-color: @dashBackground;
 		ul{
@@ -33,7 +35,7 @@ html{
 				text-decoration: none;
 				
 			}
-			> div{
+			.action-item{
 				display: inline-block;
 			}
 		}
@@ -49,6 +51,16 @@ html{
 		}
 		.dash-icon{
 			margin-right: 7px;	
+		}
+		
+		.minimal{
+			.section-container{
+				text-align: center;
+				.show{
+					display: none;
+				}
+			}
+			
 		}
 	}
 } 
