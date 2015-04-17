@@ -12,13 +12,13 @@ app.directive("cmpDashboard",function(){
 		link: function(scope, element, attrs){
 			scope.$on('loaded', function(event, args){
 				element.css('background', 'red');
-				//console.log(args);
 				var dom = element[0];
+				var height = args;
 				
-				$(dom).find('#dashboard').css('min-height', args);
-				
-				console.log($(dom).find('#dashboard').html());
-				console.log($(element[0]));
+				if (height < scope.defaultHeight)
+					$(dom).find('#dashboard').css('min-height', scope.defaultHeight);
+				else
+					$(dom).find('#dashboard').css('min-height', args);
 			});
 		}
 	};

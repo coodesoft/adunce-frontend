@@ -22,15 +22,17 @@ app.controller("DashboardAdmController",function($scope){
 	};
 	
 	$scope.initDash = function(){
-		 $(document).resize(function(){
-			 alert('document');
+		 $(window).resize(function(){
 			    $('#dashboard').css('min-height',($(this).height()-$('#dashboard').position().top));
+			    $scope.defaultHeight = ($(window).height()-$('#dashboard').position().top);
 		 });
 
 		 $(function(){
-			 $('#dashboard').css('min-height',($(this).height()-$('#dashboard').position().top));
+			 $('#dashboard').css('min-height',($(window).height()-$('#dashboard').position().top));
+			 $scope.defaultHeight = ($(window).height()-$('#dashboard').position().top);
 		 });
-		 
+		
+		
 		$scope.sections = [
 		         { 'name': 'Afiliados',
 		           'icon': 'glyphicon glyphicon-user',
