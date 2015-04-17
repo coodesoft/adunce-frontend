@@ -9,17 +9,23 @@ app.directive("afiliadosList",function(){
 		restrict: 'E',
 		templateUrl: 'views/adminPartials/list_afiliados.html',
 		controller: 'AfiliadosAdmController',
-		controllerAs: 'afAdmin'
+		controllerAs: 'afAdmin' ,
+		link: function(scope, element, attrs){
+			scope.$emit('loaded', element.parents('.right').height());
+		}
 	};
 	
 });
 
-app.directive("addAfiliado",function(){
+app.directive("addAfiliado", function() {
 	
 	return {
 		restrict: 'E',
 		templateUrl: 'views/adminPartials/add_afiliados.html',
 		controller: "AfiliadosAdmController",
-		controllerAs: 'afAdmin'
+		controllerAs: 'afAdmin',
+		link: function(scope, element, attrs){
+			scope.$emit('loaded', element.parents('.right').height());
+		}
 	};
 });
