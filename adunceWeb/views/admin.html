@@ -11,11 +11,11 @@
 	      </button>
 	      <a class="navbar-brand" href="#">ADUNCe</a>
 	    </div>
-	
+
 	    <!-- Collect the nav links, forms, and other content for toggling -->
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	      <ul class="nav navbar-nav">
-	        <li ng-click="showMenu()"><a href="" data-toggle-nav-collapsed-min="" class="toggle-min"><i class="glyphicon glyphicon-menu-hamburger"></i></a></li>
+	        <li id="menu-toggle"ng-click="showMenu()"><a href="" id="hamburger" data-toggle-nav-collapsed-min="" class="toggle-min"><i class="glyphicon glyphicon-menu-hamburger"></i></a></li>
 	        <li><a href="" data-toggle-nav-collapsed-min="" class="toggle-min"><i class="glyphicon glyphicon-wrench"></i></a></li>
 	        <li><a href="" data-toggle-nav-collapsed-min="" class="toggle-min"><i class="glyphicon glyphicon-leaf"></i></a></li>
 	      </ul>
@@ -40,7 +40,7 @@
 <section id="adminArea">
 	<div class="container-full dashboard-admin">
 		<div ng-include="includeSection('dashboard')"></div>
-		
+
 		<div class="right column" ng-class="{'col-md-10':showMenu, 'col-lg-10':showMenu,'col-md-12':!showMenu, 'col-lg-12':!showMenu}">
 			<div class="dash-header"></div>
 			<div class="dash-body">
@@ -64,8 +64,8 @@
 	  			</div>
 			</div>
 		</div>
-			
-		</div>	
+
+		</div>
 	</div>
 </section>
 

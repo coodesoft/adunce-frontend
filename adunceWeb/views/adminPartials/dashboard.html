@@ -1,10 +1,9 @@
-
 <div ng-switch on="dashstatus">
 			<div ng-switch-when="standard">
 				<div id="dashboard" class="left column col-md-2 col-lg-2" ng-init=initDash()>
-					<div class="dash-body standard">		
-						<div class="admin-actions">
-							<ul>
+					<div class="dash-body standard">
+						<nav class="admin-actions sidy__panel" data-position="left" data-size="30%" data-fx="slide_overlay" id="demo">
+							<!-- <ul>
 								<li class="section-container" ng-repeat="section in sections">
 									<div class="section" ng-class="{'active':isCollapsed, '':!isCollapsed}" ng-click="isCollapsed = !isCollapsed">
 										<span class="dash-icon {{section.icon}}"></span>{{section.name}}
@@ -16,14 +15,27 @@
 										</li>
 									</ul>
 								</li>
+							</ul> -->
+							<ul>
+								<li class="section-container" ng-repeat="section in sections">
+									<div class="section">
+										<span class="dash-icon {{section.icon}}"></span>{{section.name}}
+									</div>
+									<ul class="action-container" ng-class="{'collapsed':!isCollapsed, 'no-collapsed':isCollapsed}">
+										<li class="action" ng-repeat="action in section.actions">
+											<span class="dash-icon {{action.icon}}"></span>
+											<div class="action-item" ng-click="showSection(action.name+section.name)">{{action.name}}</div>
+										</li>
+									</ul>
+								</li>
 							</ul>
-						</div>
+						</nav>
 					</div>
 				</div>
 			</div>
 			<div ng-switch-when="minimal">
 				<div id="dashboard" class="left column col-md-1 col-lg-1" ng-init=initDash()>
-					<div class="dash-body minimal">		
+					<div class="dash-body minimal">
 						<div class="admin-actions">
 							<ul>
 								<li class="section-container" ng-repeat="section in sections">
