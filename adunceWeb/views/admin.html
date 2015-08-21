@@ -15,7 +15,9 @@
 	    <!-- Collect the nav links, forms, and other content for toggling -->
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	      <ul class="nav navbar-nav">
-	        <li id="menu-toggle"ng-click="showMenu()"><a href="" id="hamburger" data-toggle-nav-collapsed-min="" class="toggle-min"><i class="glyphicon glyphicon-menu-hamburger"></i></a></li>
+					<!-- ng-click="showMenu()" -->
+					<li><button data-panel="actions" class="sidy--to--open">A</button></li>
+	        <li id="menu-toggle" data-panel="actions"><a href="" id="hamburger" data-toggle-nav-collapsed-min="" class="toggle-min"><i class="glyphicon glyphicon-menu-hamburger"></i></a></li>
 	        <li><a href="" data-toggle-nav-collapsed-min="" class="toggle-min"><i class="glyphicon glyphicon-wrench"></i></a></li>
 	        <li><a href="" data-toggle-nav-collapsed-min="" class="toggle-min"><i class="glyphicon glyphicon-leaf"></i></a></li>
 	      </ul>
@@ -37,7 +39,7 @@
 	</nav>
 </header>
 
-<section id="adminArea">
+<section id="adminArea" class="sidy__content">
 	<div class="container-full dashboard-admin">
 		<div ng-include="includeSection('dashboard')"></div>
 
