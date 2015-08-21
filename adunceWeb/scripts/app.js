@@ -14,7 +14,7 @@ var app = angular.module('MainApp', [
                                      'ngSanitize',
                                      'ui.select'
                                   ]);
-app.server = "http://dev.coodesoft.com.ar:8080/adunce"
+app.server = "http://localhost:8080/gestion"
 	
 app.config(function($routeProvider){
     	   $routeProvider
