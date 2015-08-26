@@ -9,9 +9,9 @@
 										<span class="dash-icon {{section.icon}}"></span>{{section.name}}
 									</div>
 									<ul class="action-container" ng-class="{'collapsed':!isCollapsed, 'no-collapsed':isCollapsed}">
-										<li class="action" ng-repeat="action in section.actions">
+										<li ng-click="showSection(action.name+section.name)" class="action" ng-repeat="action in section.actions">
 											<span class="dash-icon {{action.icon}}"></span>
-											<div class="action-item" ng-click="showSection(action.name+section.name)">{{action.name}}</div>
+											<div class="action-item">{{action.name}}</div>
 										</li>
 									</ul>
 								</li>
@@ -22,9 +22,9 @@
 										<span class="dash-icon {{section.icon}}"></span>{{section.name}}
 									</div>
 									<ul class="action-container" ng-class="{'collapsed':!isCollapsed, 'no-collapsed':isCollapsed}">
-										<li class="action" ng-repeat="action in section.actions">
+										<li ng-click="showSection(action.name+section.name)" class="action" ng-repeat="action in section.actions">
 											<span class="dash-icon {{action.icon}}"></span>
-											<div class="action-item" ng-click="showSection(action.name+section.name)">{{action.name}}</div>
+											<div class="action-item">{{action.name}}</div>
 										</li>
 									</ul>
 								</li>
@@ -45,9 +45,9 @@
 									<div class="floating-menu" ng-show="{'show':isCollapsed, '':!isCollapsed}">
 										<div class="section-name">{{section.name}}</div>
 										<ul class="action-container" ng-class="{'collapsed':!isCollapsed, 'no-collapsed':isCollapsed}">
-											<li class="action" ng-repeat="action in section.actions">
+											<li ng-click="showSection(action.name+section.name)" class="action" ng-repeat="action in section.actions">
 												<span class="dash-icon {{action.icon}}"></span>
-												<div class="action-item" ng-click="showSection(action.name+section.name)">{{action.name}}</div>
+												<div class="action-item" >{{action.name}}</div>
 											</li>
 										</ul>
 									</div>
@@ -57,4 +57,8 @@
 					</div>
 				</div>
 			</div>
-		</div>
+<<<<<<< HEAD
+</div>
+=======
+</div>
+>>>>>>> branch 'master' of https://github.com/coodesoft/adunce-frontend.git

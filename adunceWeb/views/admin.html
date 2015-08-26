@@ -41,6 +41,7 @@
 
 <section id="adminArea" class="sidy__content">
 	<div class="container-full dashboard-admin">
+<<<<<<< HEAD
 		<div ng-include="includeSection('dashboard')"></div>
 
 		<div class="right column" ng-class="{'col-md-10':showMenu, 'col-lg-10':showMenu,'col-md-12':!showMenu, 'col-lg-12':!showMenu}">
@@ -68,6 +69,36 @@
 		</div>
 
 		</div>
+=======
+		<div class="row">
+			<!-- div ng-include="includeSection('dashboard')"></div-->
+			<cmp-dashboard></cmp-dashboard>
+			
+			<div class="right column" ng-class="{'col-md-10':showMenu, 'col-lg-10':showMenu,'col-md-12':!showMenu, 'col-lg-12':!showMenu}">
+				<div class="dash-header"></div>
+				<div class="dash-body">
+					<div class="container content" >
+						<div class="panel panel-active">
+							<div class="animate-switch-container" ng-switch on="activeSection">
+							    <div class="animate-switch" ng-switch-when="ListarAfiliados">
+							      	<!--div ng-include="includeSection('list_afiliados')"></div-->
+							      	<afiliados-list></afiliados-list>
+							    </div>
+							    <div class="animate-switch" ng-switch-when="AgregarAfiliados">
+							      	<!--div ng-include="includeSection('add_afiliados')"></div-->
+							      	<add-afiliado></add-afiliado>
+							    </div>
+							    <div class="animate-switch" ng-switch-when="BorrarAfiliados">
+									<div ng-include="includeSection('delete_afiliados')"></div>
+								</div>
+							    <div class="animate-switch" ng-switch-default>default</div>
+				  			</div>
+		  				</div>
+		  			</div>
+				</div>
+			</div>
+		</div>	
+>>>>>>> branch 'master' of https://github.com/coodesoft/adunce-frontend.git
 	</div>
 </section>
 

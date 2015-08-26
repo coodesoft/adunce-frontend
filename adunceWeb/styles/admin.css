@@ -1,5 +1,5 @@
 html{height:100%}
-#dashboard{padding:0}
+#dashboard{padding:0;height:100%}
 .dashboard-admin .action-container{margin-left:10%}
 .dashboard-admin .left{background-color:#1c2b36}.dashboard-admin .left ul{padding:0 3px}
 .dashboard-admin .left li{list-style-position:inside;list-style-type:none}
@@ -8,4 +8,4 @@ html{height:100%}
 .dashboard-admin .left .section{border-bottom:1px solid #666;border-top:1px solid #666;margin-top:-1px}
 .dashboard-admin .left .active{background:#1c272d}
 .dashboard-admin .left .dash-icon{margin-right:7px}
-.dashboard-admin .left .minimal .section-container{text-align:center}
+.dashboard-admin .left .minimal .section-container{text-align:center}.dashboard-admin .left .minimal .section-container .show{display:none}

@@ -2,6 +2,7 @@
 	var app = angular.module('MainApp');
 
 	app.controller('AdminController', function($scope, afiliadosFactory){
+<<<<<<< HEAD
 
 		$scope.visibility = true;
 
@@ -62,6 +63,13 @@
 			$scope.activeSection = section;
 		};
 
+=======
+		
+		var self = this;
+		
+		
+		
+>>>>>>> branch 'master' of https://github.com/coodesoft/adunce-frontend.git
 		$scope.includeSection = function(section){
 			return "views/adminPartials/"+section+".html";
 		};
@@ -71,5 +79,26 @@
 	    		$scope.afiliados = data;
 	    	});
 	    };
+<<<<<<< HEAD
 
+=======
+	    
+	   
+	    self.refactContainersHeight = function (source, destiny){
+	    	var hsource  = $('#'+source).css('height');
+	    	var hdestiny = $('#'+destiny).css('height');
+	    		
+	    	if (hsource!=undefined && hdestiny!=undefined){
+	    		if (hsource>hdestiny){
+	    			$('#'+destiny).css('min-height', hsource);
+	    		} else {
+	    			$('#'+source).css('min-height', hdestiny);
+	    		}
+	    	}
+
+	    }
+
+	    
+	    
+>>>>>>> branch 'master' of https://github.com/coodesoft/adunce-frontend.git
 	});
