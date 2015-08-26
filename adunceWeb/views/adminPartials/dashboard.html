@@ -2,23 +2,10 @@
 			<div ng-switch-when="standard">
 				<div id="dashboard" class="left column col-md-2 col-lg-2" ng-init=initDash()>
 					<div class="dash-body standard">
-						<nav class="admin-actions sidy__panel" data-position="left" data-size="30%" data-fx="slide_overlay" id="actions">
-							<!-- <ul>
-								<li class="section-container" ng-repeat="section in sections">
-									<div class="section" ng-class="{'active':isCollapsed, '':!isCollapsed}" ng-click="isCollapsed = !isCollapsed">
-										<span class="dash-icon {{section.icon}}"></span>{{section.name}}
-									</div>
-									<ul class="action-container" ng-class="{'collapsed':!isCollapsed, 'no-collapsed':isCollapsed}">
-										<li ng-click="showSection(action.name+section.name)" class="action" ng-repeat="action in section.actions">
-											<span class="dash-icon {{action.icon}}"></span>
-											<div class="action-item">{{action.name}}</div>
-										</li>
-									</ul>
-								</li>
-							</ul> -->
+						<nav class="admin-actions">
 							<ul>
 								<li class="section-container" ng-repeat="section in sections">
-									<div class="section">
+									<div class="section" ng-class="{'active':isCollapsed, '':!isCollapsed}" ng-click="isCollapsed = !isCollapsed">
 										<span class="dash-icon {{section.icon}}"></span>{{section.name}}
 									</div>
 									<ul class="action-container" ng-class="{'collapsed':!isCollapsed, 'no-collapsed':isCollapsed}">
@@ -57,8 +44,5 @@
 					</div>
 				</div>
 			</div>
-<<<<<<< HEAD
+	</div>
 </div>
-=======
-</div>
->>>>>>> branch 'master' of https://github.com/coodesoft/adunce-frontend.git

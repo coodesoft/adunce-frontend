@@ -15,9 +15,7 @@
 	    <!-- Collect the nav links, forms, and other content for toggling -->
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	      <ul class="nav navbar-nav">
-					<!-- ng-click="showMenu()" -->
-					<li><button data-panel="actions" class="sidy--to--open">A</button></li>
-	        <li id="menu-toggle" data-panel="actions"><a href="" id="hamburger" data-toggle-nav-collapsed-min="" class="toggle-min"><i class="glyphicon glyphicon-menu-hamburger"></i></a></li>
+	        <li id="menu-toggle" data-panel="actions" ng-click="showMenu()"><a href="" id="hamburger" data-toggle-nav-collapsed-min="" class="toggle-min"><i class="glyphicon glyphicon-menu-hamburger"></i></a></li>
 	        <li><a href="" data-toggle-nav-collapsed-min="" class="toggle-min"><i class="glyphicon glyphicon-wrench"></i></a></li>
 	        <li><a href="" data-toggle-nav-collapsed-min="" class="toggle-min"><i class="glyphicon glyphicon-leaf"></i></a></li>
 	      </ul>
@@ -41,9 +39,7 @@
 
 <section id="adminArea" class="sidy__content">
 	<div class="container-full dashboard-admin">
-<<<<<<< HEAD
 		<div ng-include="includeSection('dashboard')"></div>
-
 		<div class="right column" ng-class="{'col-md-10':showMenu, 'col-lg-10':showMenu,'col-md-12':!showMenu, 'col-lg-12':!showMenu}">
 			<div class="dash-header"></div>
 			<div class="dash-body">
@@ -69,11 +65,11 @@
 		</div>
 
 		</div>
-=======
+
 		<div class="row">
 			<!-- div ng-include="includeSection('dashboard')"></div-->
 			<cmp-dashboard></cmp-dashboard>
-			
+
 			<div class="right column" ng-class="{'col-md-10':showMenu, 'col-lg-10':showMenu,'col-md-12':!showMenu, 'col-lg-12':!showMenu}">
 				<div class="dash-header"></div>
 				<div class="dash-body">
@@ -97,8 +93,7 @@
 		  			</div>
 				</div>
 			</div>
-		</div>	
->>>>>>> branch 'master' of https://github.com/coodesoft/adunce-frontend.git
+		</div>
 	</div>
 </section>
 
