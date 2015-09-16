@@ -2,8 +2,8 @@
 	Agregar afiliado
 </div>
 <div class="panel-body">
-	<form name="addAfiliadoForm" 
-			ng-submit="addAfiliadoForm.$valid && addAfiliado()">
+	<form name="addAfiliadoForm"
+			ng-submit="(addAfiliadoForm.$valid && !$scope.edit && addAfiliado()) || ((addAfiliadoForm.$valid && $scope.edit && editAfiliado()))">
 		<div class="form-group">
 			<label for="nombre">Nombre:</label>
 			<input class="form-control" type="text" ng-model="newAfiliado.nombre" id="nombre" name="nombre" placeholder="John"/>
@@ -41,30 +41,34 @@
 		  			Agregar los hijos del afiliado que se está agregando.
 		  		</div>
 		  		<div class="fieldset">
-					<div class="form-group col-lg-6 col-md-6 col-xs-12">
-						<label for="sexo">Sexo:</label>
-						<ui-select name="sexo" id="sexo" ng-model="newHijo.sexo">
-							<ui-select-match placeholder="">{{$select.selected.value}}</ui-select-match>
-							<ui-select-choices repeat="value.id as value in sexoOpts">
-								<span>{{value.value}}</span>
-							</ui-select-choices>
-						</ui-select>
+						<div class="form-group col-lg-4 col-md-4 col-xs-12">
+							<label for="dni">Dni:</label>
+							<input class="form-control" type="text" ng-model="newHijo.id" id="dni" name="dni" placeholder="John"/>
+						</div>
+						<div class="form-group col-lg-4 col-md-4 col-xs-12">
+							<label for="sexo">Sexo:</label>
+							<ui-select name="sexo" id="sexo" ng-model="newHijo.sexo">
+								<ui-select-match placeholder="">{{$select.selected.value}}</ui-select-match>
+								<ui-select-choices repeat="value.id as value in sexoOpts">
+									<span>{{value.value}}</span>
+								</ui-select-choices>
+							</ui-select>
+						</div>
+						<div class="form-group col-lg-4 col-md-4 col-xs-12">
+				            <label for="fechaNacimiento">Fecha Nacimiento:</label>
+				            <p class="input-group">
+				              <input type="text" class="form-control" name="fechaNacimiento" id="fechaNacimiento" datepicker-append-to-body="true" datepicker-popup="dd-MMMM-yyyy" ng-model="newHijo.fechaNacimiento" is-open="opened" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" close-text="Close" />
+				              <span class="input-group-btn">
+				                <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+				              </span>
+				            </p>
+					  </div>
+						<div class="form-group col-lg-12 col-md-12 col-xs-12">
+							<input class="btn btn-default" type="button" value="Agregar" ng-click="addHijo()" />
+						</div>
 					</div>
-					<div class="form-group col-md-6 col-md-6 col-xs-12">
-			            <label for="fechaNacimiento">Fecha Nacimiento:</label>
-			            <p class="input-group">
-			              <input type="text" class="form-control" name="fechaNacimiento" id="fechaNacimiento" datepicker-append-to-body="true" datepicker-popup="dd-MMMM-yyyy" ng-model="newHijo.fechaNacimiento" is-open="opened" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" close-text="Close" />
-			              <span class="input-group-btn">
-			                <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-			              </span>
-			            </p>
-				    </div>
-					<div class="form-group col-lg-12 col-md-12 col-xs-12">
-						<input class="btn btn-default" type="button" value="Agregar" ng-click="addHijo()" />
-					</div>
-				</div>
 		  	</div>
-			
+
 			<table ng-show="!(newAfiliado.hijos.length===0)" class="table table-hover">
 				<tbody>
 					<tr>

@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 	var app=angular.module("MainApp");
 
@@ -10,8 +10,10 @@
 		 * Initiallization
 		 * */
 		$scope.edit = angular.isDefined($scope.edit) ? $scope.edit : false;
-		
+		$scope.editMode = false;
+
 		$scope.afiliados = {};
+		$scope.activeAfiliado = {};
 		$scope.grupos = {};
 		$scope.newAfiliado = {};
 		$scope.newAfiliado.hijos = [];
@@ -19,68 +21,100 @@
 		$scope.newHijo = {};
 		$scope.sexoOpts=[
 		                 	{
-		                 		"id":"masculino",
-		                 		"value":"Masculino"
+		                 		"id":"MASCULINO",
+		                 		"value":"Masculino",
 		                 	},
 		                 	{
-		                 		"id":"femenino",
-		                 		"value":"Femenino"
+		                 		"id":"FEMENINO",
+		                 		"value":"Femenino",
 		                 	}
 		                 ];
-		
+
 		$scope.addHijo = function(){
+			$scope.newHijo.pariente = $scope.newAfiliado.uername;
 			$scope.newAfiliado.hijos.push($scope.newHijo);
 			$scope.newHijo = {};
 		}
-		
+
 		$scope.removeHijo = function(index){
 			$scope.newAfiliado.hijos.splice(index,1);
 		}
-		
+
 		$scope.removeAfiliado = function(index){
 			alert(index);
 		}
-		
+
 		afiliadosFactory.getAfiliados().success(function(data){
 			$scope.afiliados=data;
 		}).error(function(data){
 			$scope.afiliados={};
 		});
-		
+
 		gruposFactory.getGrupos().success(function(data){
 			$scope.grupos=data;
 		}).error(function(data){
 			$scope.grupos={};
 		});
-		
-		$scope.addAfiliado = function(){
-			afiliadosFactory.addAfiliado($scope.newAfiliado).success(function(data){
-				//$scope.cargarAfiliados();
-			}).error(function(data){
-				//alert("Error");
-			});
+
+		$scope.addAfiliado = function(editMode){
+			if(editMode==true){
+				afiliadosFactory.saveAfiliado($scope.newAfiliado).success(function(data){
+					//$scope.cargarAfiliados();
+				}).error(function(data){
+					//alert("Error");
+				});
+			} else{
+				afiliadosFactory.addAfiliado($scope.newAfiliado).success(function(data){
+					//$scope.cargarAfiliados();
+				}).error(function(data){
+					alert(data);
+				});
+			}
 			$scope.newAfiliado = {};
 		};
-		
+
 		$scope.removeAfiliado = function(index){
 			afiliadosFactory.removeAfiliado($scope.afiliados[index]).success(function(data){
 				$scope.afiliados.splice(index,1);
 			}).error(function(data){
 				//alert("Error");
 			});
-			
+
 		};
-		
+
+		actualizarAfiliado = function(afiliado){
+			$scope.newAfiliado=afiliado;
+			if ($scope.newAfiliado.hijos ==null)
+				$scope.newAfiliado.hijos = [];
+			if ($scope.newAfiliado.grupos ==null)
+				$scope.newAfiliado.grupos = [];
+		}
+
+		$scope.editAfiliado = function(index){
+			afiliadosFactory.getAfiliado($scope.afiliados[index].username).success(function(data){
+				actualizarAfiliado(data);
+				// $scope.activeAfiliado=data;
+				// $scope.edit=true;
+			}).error(function(data){
+				//alert("Error");
+			});
+			$scope.editMode=true;
+			alert($scope.editMode);
+			$scope.showSection('EditarAfiliados');
+		};
+
+
+
 		/*
 		 * End initialization
 		 */
 		//$('select').select2();
-		
+
 		$scope.today = function() {
 			$scope.newHijo.fechaNacimiento = new Date();
 			$scope.dt = new Date();
 		  };
-		  
+
 
 		  $scope.clear = function () {
 		    $scope.newHijo.fechaNacimiento = null;

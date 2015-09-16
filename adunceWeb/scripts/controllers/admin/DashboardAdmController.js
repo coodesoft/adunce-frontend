@@ -1,7 +1,7 @@
 
 var app=angular.module("MainApp");
 
-app.controller("DashboardAdmController",function($scope){
+app.controller("DashboardAdmController",['adminActiveSection',function($scope,adminActiveSection){
 
 	$scope.visibility = true;
 
@@ -39,34 +39,28 @@ app.controller("DashboardAdmController",function($scope){
 		           'actions' : [
 		                        { 'name' : 'Listar', 'icon':'glyphicon glyphicon-align-justify' },
 		                        { 'name' : 'Agregar', 'icon':'glyphicon glyphicon-plus' },
-		                        { 'name' : 'Listar', 'icon':'glyphicon glyphicon-align-justify' },
-		                        { 'name' : 'Agregar', 'icon':'glyphicon glyphicon-plus' },
-		                        { 'name' : 'Listar', 'icon':'glyphicon glyphicon-align-justify' },
-		                        { 'name' : 'Agregar', 'icon':'glyphicon glyphicon-plus' },
-		                        { 'name' : 'Listar', 'icon':'glyphicon glyphicon-align-justify' },
-		                        { 'name' : 'Agregar', 'icon':'glyphicon glyphicon-plus' },
-		                        ]
+													],
 		        },
 		        { 'name': 'Servicios',
 		          'icon': 'glyphicon glyphicon-flash',
-			       'actions' : [
+			        'actions' : [
 			                    { 'name' : 'Listar','icon':'glyphicon glyphicon-align-justify'  },
-			                    ]
-			    },
-			    {
-			      'name': 'Grupos',
-			      'icon': 'glyphicon glyphicon-user',
-			                	   {'name' : 'Listar', 'icon':'glyphicon glyphicon-align-justify'},
-			      'actions' : [
+													],
+			    	},
+			    	{
+			      	'name': 'Grupos',
+			      	'icon': 'glyphicon glyphicon-user',
+			      	'actions' : [
+														{'name' : 'Listar', 'icon':'glyphicon glyphicon-align-justify'},
 			                	   { 'name' : 'Agregar', 'icon':'glyphicon glyphicon-plus' },
 				                   { 'name' : 'Borrar', 'icon':'glyphicon glyphicon-minus' },
-			                   ]
+			                   ],
 			    },
 
 		     ];
 	};
 
 	$scope.showSection = function(section){
-		$scope.activeSection = section;
+		$scope.section=section;
 	};
-});
+}]);

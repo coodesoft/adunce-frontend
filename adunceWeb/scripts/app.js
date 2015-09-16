@@ -14,8 +14,8 @@ var app = angular.module('MainApp', [
                                      'ngSanitize',
                                      'ui.select'
                                   ]);
-app.server = "http://dev.coodesoft.com.ar:8080/adunce"
-	
+app.server = "http://localhost:8080/gestion"
+
 app.config(function($routeProvider){
     	   $routeProvider
     	   	.when('/admin', {
@@ -26,6 +26,11 @@ app.config(function($routeProvider){
     	   $routeProvider.when('/alta', {
     	   		templateUrl: 'views/admin.html',
     	   		controller: 'AdminController',
+    	   		controllerAs: 'admin'
+    	   	});
+         $routeProvider.when('/', {
+    	   		templateUrl: 'views/user.html',
+    	   		controller: 'UserController',
     	   		controllerAs: 'admin'
     	   	})
        });

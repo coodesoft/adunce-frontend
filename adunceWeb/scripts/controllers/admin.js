@@ -3,9 +3,7 @@
 
 	app.controller('AdminController', function($scope, afiliadosFactory){
 
-
 		$scope.visibility = true;
-
 
 		$scope.dashstatus = 'standard';
 
@@ -64,7 +62,7 @@
 		};
 
 		var self = this;
-		
+
 		$scope.includeSection = function(section){
 			return "views/adminPartials/"+section+".html";
 		};
@@ -77,7 +75,7 @@
 	    self.refactContainersHeight = function (source, destiny){
 	    	var hsource  = $('#'+source).css('height');
 	    	var hdestiny = $('#'+destiny).css('height');
-	    		
+
 	    	if (hsource!=undefined && hdestiny!=undefined){
 	    		if (hsource>hdestiny){
 	    			$('#'+destiny).css('min-height', hsource);
