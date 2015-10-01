@@ -29,8 +29,8 @@ app.config(function($routeProvider){
     	   		controllerAs: 'admin'
     	   	});
          $routeProvider.when('/', {
-    	   		templateUrl: 'views/user.html',
+    	   		templateUrl: 'views/login.html',
     	   		controller: 'UserController',
-    	   		controllerAs: 'admin'
+    	   		controllerAs: 'user'
     	   	})
        });

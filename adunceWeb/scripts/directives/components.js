@@ -2,7 +2,7 @@
 var app = angular.module('MainApp');
 
 
-app.directive("cmpDashboard",function(){
+app.directive("cmpAdminDash",function(){
 
 	return {
 		restrict: 'E',

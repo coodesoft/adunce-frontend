@@ -51,7 +51,7 @@ app.controller("DashboardAdmController",['adminActiveSection',function($scope,ad
 			      	'name': 'Grupos',
 			      	'icon': 'glyphicon glyphicon-user',
 			      	'actions' : [
-														{'name' : 'Listar', 'icon':'glyphicon glyphicon-align-justify'},
+								   {'name' : 'Listar', 'icon':'glyphicon glyphicon-align-justify'},
 			                	   { 'name' : 'Agregar', 'icon':'glyphicon glyphicon-plus' },
 				                   { 'name' : 'Borrar', 'icon':'glyphicon glyphicon-minus' },
 			                   ],

@@ -39,7 +39,8 @@
 
 <section id="adminArea">
 	<div class="container-full dashboard-admin">
-		<div ng-include="includeSection('dashboard')"></div>
+		<!-- <div ng-include="includeSection('dashboard')"></div>  -->
+		<cmp-admin-dash></cmp-admin-dash>
 		<div class="right column" ng-class="{'col-md-10':showMenu, 'col-lg-10':showMenu,'col-md-12':!showMenu, 'col-lg-12':!showMenu}">
 			<div class="dash-header"></div>
 			<div class="dash-body">
