@@ -1,4 +1,5 @@
 .collapsed{max-height:0;overflow:hidden}
 .no-collapsed{max-height:500px}
-#header{background:url("../img/bg-header.png");height:200px}#header img{margin-top:100px;width:100%}
+#header{background:url("../img/bg-header.png");height:200px}#header>div{text-align:center}
+#header img{margin-top:70px;width:90%}
 #formContainer{padding-top:50px}
