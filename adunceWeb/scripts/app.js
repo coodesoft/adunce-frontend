@@ -32,5 +32,10 @@ app.config(function($routeProvider){
     	   		templateUrl: 'views/login.html',
     	   		controller: 'UserController',
     	   		controllerAs: 'user'
-    	   	})
+    	   	});
+    	 $routeProvider.when('/user', {
+    		 templateUrl: 'views/user.html',
+    		 controller: 'UserController',
+    		 controllerAs: 'user'
+    	 }) 
        });

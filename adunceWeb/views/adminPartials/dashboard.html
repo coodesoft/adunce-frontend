@@ -1,48 +1,22 @@
-<div ng-switch on="dashstatus">
-			<div ng-switch-when="standard">
-				<div id="dashboard" class="left column col-md-2 col-lg-2" ng-init=initDash()>
-					<div class="dash-body standard">
-						<nav class="admin-actions">
-							<ul>
-								<li class="section-container" ng-repeat="section in sections">
-									<div class="section" ng-class="{'active':isCollapsed, '':!isCollapsed}" ng-click="isCollapsed = !isCollapsed">
-										<span class="dash-icon {{section.icon}}"></span>{{section.name}}
-									</div>
-									<ul class="action-container" ng-class="{'collapsed':!isCollapsed, 'no-collapsed':isCollapsed}">
-										<li ng-click="showSection(action.name+section.name)" class="action" ng-repeat="action in section.actions">
-											<span class="dash-icon {{action.icon}}"></span>
-											<div class="action-item">{{action.name}}</div>
-										</li>
-									</ul>
-								</li>
-							</ul>
-						</nav>
-					</div>
+<div id="dashboard" ng-class="{'col-md-2':dashVisible, 'col-lg-2':dashVisible, 'hidden':!dashVisible, 'hidden':!dashVisible}">
+	<nav class="navbar navbar-inverse">
+		<p>ADUNCe</p> 
+	</nav>
+
+	<div class="dash-body">
+		<ul>
+			<li class="section-container" ng-repeat="(key, section) in sections">
+				<div class="section {{section.status}}" ng-class="{'active':isCollapsed, '':!isCollapsed}" ng-click="changeSectionStatus(key)">
+					<span class="dash-icon {{section.icon}}"></span>{{key}}
 				</div>
-			</div>
-			<div ng-switch-when="minimal">
-				<div id="dashboard" class="left column col-md-1 col-lg-1" ng-init=initDash()>
-					<div class="dash-body minimal">
-						<div class="admin-actions">
-							<ul>
-								<li class="section-container" ng-repeat="section in sections">
-									<div class="section" ng-class="{'active':isCollapsed, '':!isCollapsed}" ng-mouseover="isCollapsed=true" ng-mouseleave="isCollapsed=false">
-										<span class="dash-icon {{section.icon}}"></span>
-									</div>
-									<div class="floating-menu" ng-show="{'show':isCollapsed, '':!isCollapsed}">
-										<div class="section-name">{{section.name}}</div>
-										<ul class="action-container" ng-class="{'collapsed':!isCollapsed, 'no-collapsed':isCollapsed}">
-											<li ng-click="showSection(action.name+section.name)" class="action" ng-repeat="action in section.actions">
-												<span class="dash-icon {{action.icon}}"></span>
-												<div class="action-item" >{{action.name}}</div>
-											</li>
-										</ul>
-									</div>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
+				<ul class="action-container" ng-class="{'collapsed':!section.status, 'no-collapsed':section.status}">
+					<li ng-click="showSection(action.name+key)" class="action" ng-repeat="action in section.actions">
+						<span class="dash-icon {{action.icon}}"></span>
+						<div class="action-item">{{action.name}}</div>
+					</li>
+				</ul>
+			</li>
+		</ul>
 	</div>
+
 </div>

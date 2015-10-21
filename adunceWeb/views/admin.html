@@ -1,68 +1,33 @@
-<header>
-	<nav class="navbar navbar-inverse">
-	  <div class="container-fluid">
-	    <!-- Brand and toggle get grouped for better mobile display -->
-	    <div class="navbar-header left-brand">
-	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-	        <span class="sr-only">Toggle navigation</span>
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	      </button>
-	      <a class="navbar-brand" href="#">ADUNCe</a>
-	    </div>
-
-	    <!-- Collect the nav links, forms, and other content for toggling -->
-	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-	      <ul class="nav navbar-nav">
-	        <li id="menu-toggle" data-panel="actions" ng-click="showMenu()"><a href="" id="hamburger" data-toggle-nav-collapsed-min="" class="toggle-min"><i class="glyphicon glyphicon-menu-hamburger"></i></a></li>
-	        <li><a href="" data-toggle-nav-collapsed-min="" class="toggle-min"><i class="glyphicon glyphicon-wrench"></i></a></li>
-	        <li><a href="" data-toggle-nav-collapsed-min="" class="toggle-min"><i class="glyphicon glyphicon-leaf"></i></a></li>
-	      </ul>
-	      <ul class="nav navbar-nav navbar-right">
-	        <li><a href="" class="avatar"></a></li>
-	        <li class="dropdown">
-	          <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Mau Giam <span class="caret"></span></a>
-	          <ul class="dropdown-menu" role="menu">
-	            <li><a href="#">Editar Perfil</a></li>
-	            <li><a href="#">Another action</a></li>
-	            <li><a href="#">Something else here</a></li>
-	            <li class="divider"></li>
-	            <li><a href="#/admin">Cerrar Sesión</a></li>
-	          </ul>
-	        </li>
-	      </ul>
-	    </div><!-- /.navbar-collapse -->
-	  </div><!-- /.container-fluid -->
-	</nav>
-</header>
-
 <section id="adminArea">
-	<div class="container-full dashboard-admin">
-		<!-- <div ng-include="includeSection('dashboard')"></div>  -->
-		<cmp-admin-dash></cmp-admin-dash>
-		<div class="right column" ng-class="{'col-md-10':showMenu, 'col-lg-10':showMenu,'col-md-12':!showMenu, 'col-lg-12':!showMenu}">
-			<div class="dash-header"></div>
-			<div class="dash-body">
-				<div class="container content" >
+	<div class="container-full">
+		
+		<cmp-dashboard></cmp-dashboard>
+		
+		<div id="rightPane" ng-class="{'col-md-10':dashVisible, 'col-lg-10':dashVisible, 'col-md-12':!dashVisible, 'col-lg-12':!dashVisible}">
+			 <cmp-nav-dash></cmp-nav-dash>
+			
+			<div>
+				<div class="container" >
 					<div class="panel panel-active">
 						<!-- ng-controller="AfiliadosAdmController" -->
 						<div  class="animate-switch-container" ng-switch on="activeSection">
+						    
 						    <div class="animate-switch" ng-switch-when="ListarAfiliados">
-						      	<!--div ng-include="includeSection('list_afiliados')"></div-->
 						      	<afiliados-list></afiliados-list>
 						    </div>
+						    
 						    <div class="animate-switch" ng-switch-when="AgregarAfiliados">
-						      	<!--div ng-include="includeSection('add_afiliados')"></div-->
 						      	<add-afiliado></add-afiliado>
 						    </div>
-								<div class="animate-switch" ng-switch-when="EditarAfiliados">
-						      	<!--div ng-include="includeSection('add_afiliados')"></div-->
+							
+							<div class="animate-switch" ng-switch-when="EditarAfiliados">
 						      	<edit-afiliado></edit-afiliado>
 						    </div>
+						    
 						    <div class="animate-switch" ng-switch-when="BorrarAfiliados">
 									<div ng-include="includeSection('delete_afiliados')"></div>
-								</div>
+							</div>
+						    
 						    <div class="animate-switch" ng-switch-default>default</div>
 			  			</div>
 	  				</div>

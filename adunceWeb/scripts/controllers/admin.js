@@ -3,60 +3,49 @@
 
 	app.controller('AdminController', function($scope, afiliadosFactory){
 
-		$scope.visibility = true;
+		$scope.sections = {
+				'Afiliados': {
+			        'icon': 'glyphicon glyphicon-user',
+			        'actions' : [
+			                     { 'name' : 'Listar', 'icon':'glyphicon glyphicon-align-justify' },
+			                     { 'name' : 'Agregar', 'icon':'glyphicon glyphicon-plus' },
+			                    ],
+			        'status': 'active',
+				},
+				'Servicios': { 
+			        'icon': 'glyphicon glyphicon-flash',
+				    'actions' : [
+				                 { 'name' : 'Listar','icon':'glyphicon glyphicon-align-justify'  },
+				                 ],
+			        'status': '',
+				 },
+				'Grupos':  {
+				    'icon': 'glyphicon glyphicon-user',
+				    'actions' : [
+				              	   { 'name' : 'Listar', 'icon':'glyphicon glyphicon-align-justify' },
+				              	   { 'name' : 'Agregar', 'icon':'glyphicon glyphicon-plus' },
+					                 { 'name' : 'Borrar', 'icon':'glyphicon glyphicon-minus' },
+				                 ],
+				    'status': ''			    
+				 },
+		};
+				
+		$scope.changeSectionStatus = function(key){
 
-		$scope.dashstatus = 'standard';
-
-		$scope.showMenu = function(){
-
-			if ($scope.dashstatus == 'standard')
-				$scope.dashstatus = 'minimal';
+			if ($scope.sections[key].status == 'active')
+				$scope.sections[key].status = '';
 			else
-				if ($scope.dashstatus == 'minimal')
-					$scope.dashstatus = 'hide';
-				else
-					if ($scope.dashstatus == 'hide')
-						$scope.dashstatus = 'standard';
+				$scope.sections[key].status = 'active';	
 
-		};
-
-		$scope.initDash = function(){
-			 $(window).resize(function(){
-				    $('#dashboard').css('height',($(this).height()-$('#dashboard').position().top));
-			 });
-
-			 $(function(){
-				 $('#dashboard').css('height',($(this).height()-$('#dashboard').position().top));
-			 });
-
-			$scope.sections = [
-			         { 'name': 'Afiliados',
-			           'icon': 'glyphicon glyphicon-user',
-			           'actions' : [
-			                        { 'name' : 'Listar', 'icon':'glyphicon glyphicon-align-justify' },
-			                        { 'name' : 'Agregar', 'icon':'glyphicon glyphicon-plus' },
-			                        // { 'name' : 'Borrar', 'icon':'glyphicon glyphicon-minus' },
-			                        ]
-			        },
-			        { 'name': 'Servicios',
-			          'icon': 'glyphicon glyphicon-flash',
-				       'actions' : [
-				                    { 'name' : 'Listar','icon':'glyphicon glyphicon-align-justify'  },
-				                    ]
-				    },
-				    {
-				      'name': 'Grupos',
-				      'icon': 'glyphicon glyphicon-user',
-				      'actions' : [
-				                	   {'name' : 'Listar', 'icon':'glyphicon glyphicon-align-justify'},
-				                	   { 'name' : 'Agregar', 'icon':'glyphicon glyphicon-plus' },
-					                   { 'name' : 'Borrar', 'icon':'glyphicon glyphicon-minus' },
-				                   ]
-				    },
-
-			     ];
-		};
-
+			for(var section in $scope.sections){
+				if (section != key){
+					if ($scope.sections[section].status == 'active')
+						$scope.sections[section].status = '';
+				}
+			}
+		}
+		
+		
 		$scope.showSection = function(section){
 			$scope.activeSection = section;
 		};
@@ -72,17 +61,5 @@
 	    		$scope.afiliados = data;
 	    	});
 	    };
-	    self.refactContainersHeight = function (source, destiny){
-	    	var hsource  = $('#'+source).css('height');
-	    	var hdestiny = $('#'+destiny).css('height');
-
-	    	if (hsource!=undefined && hdestiny!=undefined){
-	    		if (hsource>hdestiny){
-	    			$('#'+destiny).css('min-height', hsource);
-	    		} else {
-	    			$('#'+source).css('min-height', hdestiny);
-	    		}
-	    	}
-
-	    }
+	    
 });

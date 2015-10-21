@@ -3,40 +3,53 @@
 html{
 	height: 100%;
 }
-#dashboard {
-	padding: 0;
+
+#adminArea nav{
+	border: 0;
 }
 
-.dashboard-admin{
+#dashboard {
+	padding: 0;
 
-	.action-container{
-		margin-left: 10%;	
+	nav{
+		margin-bottom: 0px; 
+		p{
+			height: 40px;
+			text-align: center;
+    		font-size: 25px;
+	    	line-height: 50px;
+	    	color: @dashTextColor;
+		}
 	}
-
-	//dashboard
-	.left{
+	.action-container{
+		margin-left: 10%;
+		clear:both;	
+	}
+	
+	.dash-body{
 		background-color: @dashBackground;
 		ul{
 			padding: 0 3px;
+			overflow: hidden;
 		}
 		li{
 			list-style-position: inside;
 			list-style-type: none;
-		}	
+			
+			.action-item{
+				display: inline-block;
+			}
+		}
+		
 		.action, .section{
 			color: @dashTextColor;
 			cursor: pointer;
 			font-size: 15px;
 			font-family: Verdana;
 			padding: 20px;
-			width: 100%;
-			float:left;
 			&:hover{
 				text-decoration: none;
 				
-			}
-			.action-item{
-				display: inline-block;
 			}
 		}
 		
@@ -45,22 +58,22 @@ html{
 			border-top: 1px solid @dashBorder;
 			margin-top: -1px;
 		}
-		.active{
-			background: @dashActiveBackground;
-			
-		}
+		
 		.dash-icon{
 			margin-right: 7px;	
 		}
 		
-		.minimal{
-			.section-container{
-				text-align: center;
-				.show{
-					display: none;
-				}
-			}
-			
+		.active{
+			background: @dashActiveBackground;
+			font-weight: bold;
+			color: @dashActiveTextColor;
 		}
+		
 	}
+		
+}
+
+
+#rightPane{
+	padding-left: 0;
 } 

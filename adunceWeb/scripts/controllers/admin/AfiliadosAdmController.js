@@ -3,9 +3,7 @@
  */
 	var app=angular.module("MainApp");
 
-	app.controller("AfiliadosAdmController",function($scope,
-													afiliadosFactory,
-													gruposFactory){
+	app.controller("AfiliadosAdmController",function($scope, afiliadosFactory,gruposFactory){
 		/*
 		 * Initiallization
 		 * */
