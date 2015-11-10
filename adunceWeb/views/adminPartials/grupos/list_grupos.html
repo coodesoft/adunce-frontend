@@ -1,0 +1,25 @@
+<div class="panel-heading centered">
+	Lista de grupos 
+</div>
+
+<div class="panel-body">
+	<p>Se listan a continuación todos los grupos</p>
+</div>
+
+<div class="table-responsive" ng-init="getGrupos()">
+	<table class="table table-striped table-condensed">
+		<tr>
+			<th>Nombre Corto</th>
+			<th>Nombre</th>
+			<th>Acciones</th>
+		</tr>
+		<tr ng-repeat="grupo in grupos">
+			<td>{{grupo.shortname}}</td>
+			<td>{{grupo.nombre}}</td>
+			<td>
+				<div class="btn" href="" ng-click="editGrupo($index)"><span class="glyphicon glyphicon-pencil"></span></div>
+				<div class="btn" href="" ng-click="removeGrupo($index)"><span class="glyphicon glyphicon-trash"></span></div>
+			</td>
+		</tr>
+	</table>
+</div>

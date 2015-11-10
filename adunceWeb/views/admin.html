@@ -7,7 +7,7 @@
 			 <cmp-nav-dash></cmp-nav-dash>
 			
 			<div>
-				<div class="container" >
+				<div class="col-md-12 col-lg-12" >
 					<div class="panel panel-active">
 						<!-- ng-controller="AfiliadosAdmController" -->
 						<div  class="animate-switch-container" ng-switch on="activeSection">
@@ -23,10 +23,18 @@
 							<div class="animate-switch" ng-switch-when="EditarAfiliados">
 						      	<edit-afiliado></edit-afiliado>
 						    </div>
-						    
-						    <div class="animate-switch" ng-switch-when="BorrarAfiliados">
-									<div ng-include="includeSection('delete_afiliados')"></div>
-							</div>
+							
+							<div class="animate-switch" ng-switch-when="ListarGrupos">
+						      	<list-grupos></list-grupos>
+						    </div>						    
+
+							<div class="animate-switch" ng-switch-when="AgregarGrupos">
+						      	<add-grupos></add-grupos>
+						    </div>		
+							
+							<div class="animate-switch" ng-switch-when="EditarGrupos">
+								<edit-grupos></edit-grupos>	
+						    </div>		
 						    
 						    <div class="animate-switch" ng-switch-default>default</div>
 			  			</div>

@@ -8,7 +8,6 @@
 		 * Initiallization
 		 * */
 		$scope.edit = angular.isDefined($scope.edit) ? $scope.edit : false;
-		$scope.editMode = false;
 
 		$scope.afiliados = {};
 		$scope.activeAfiliado = {};
@@ -29,17 +28,13 @@
 		                 ];
 
 		$scope.addHijo = function(){
-			$scope.newHijo.pariente = $scope.newAfiliado.uername;
+			$scope.newHijo.pariente = $scope.newAfiliado.username;
 			$scope.newAfiliado.hijos.push($scope.newHijo);
 			$scope.newHijo = {};
 		}
 
 		$scope.removeHijo = function(index){
 			$scope.newAfiliado.hijos.splice(index,1);
-		}
-
-		$scope.removeAfiliado = function(index){
-			alert(index);
 		}
 
 		afiliadosFactory.getAfiliados().success(function(data){
@@ -54,10 +49,11 @@
 			$scope.grupos={};
 		});
 
-		$scope.addAfiliado = function(editMode){
-			if(editMode==true){
+		$scope.addAfiliado = function(){
+			if(afiliadosFactory.isEditModeActive()){
+				afiliadosFactory.deactivateEditMode();
 				afiliadosFactory.saveAfiliado($scope.newAfiliado).success(function(data){
-					//$scope.cargarAfiliados();
+					console.log(data);
 				}).error(function(data){
 					//alert("Error");
 				});
@@ -93,12 +89,11 @@
 				actualizarAfiliado(data);
 				// $scope.activeAfiliado=data;
 				// $scope.edit=true;
+				afiliadosFactory.activateEditMode();
+				$scope.showSection('EditarAfiliados');
 			}).error(function(data){
 				//alert("Error");
 			});
-			$scope.editMode=true;
-			alert($scope.editMode);
-			$scope.showSection('EditarAfiliados');
 		};
 
 

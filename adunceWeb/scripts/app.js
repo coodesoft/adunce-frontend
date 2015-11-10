@@ -15,7 +15,14 @@ var app = angular.module('MainApp', [
                                      'ui.select'
                                   ]);
 app.server = "http://localhost:8080/gestion"
-
+	
+app.tpl = {
+		'afiliados' : 'views/adminPartials/afiliados/',
+		'servicios' : 'views/adminPartials/servicios/',
+		'components': 'views/adminPartials/components/',
+		'grupos'	: 'views/adminPartials/grupos/',
+}
+	
 app.config(function($routeProvider){
     	   $routeProvider
     	   	.when('/admin', {

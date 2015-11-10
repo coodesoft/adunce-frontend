@@ -16,6 +16,7 @@
 			        'icon': 'glyphicon glyphicon-flash',
 				    'actions' : [
 				                 { 'name' : 'Listar','icon':'glyphicon glyphicon-align-justify'  },
+				                 { 'name' : 'Agregar','icon':'glyphicon glyphicon-plus' },
 				                 ],
 			        'status': '',
 				 },
@@ -24,7 +25,6 @@
 				    'actions' : [
 				              	   { 'name' : 'Listar', 'icon':'glyphicon glyphicon-align-justify' },
 				              	   { 'name' : 'Agregar', 'icon':'glyphicon glyphicon-plus' },
-					                 { 'name' : 'Borrar', 'icon':'glyphicon glyphicon-minus' },
 				                 ],
 				    'status': ''			    
 				 },

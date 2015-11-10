@@ -1,0 +1,25 @@
+<div class="panel-heading centered">
+	Lista de servicios 
+</div>
+
+<div class="panel-body">
+	<p>Se listan a continuación todos los servicios prestados</p>
+</div>
+
+<div class="table-responsive" ng-init="getServicios()">
+	<table class="table table-striped table-condensed">
+		<tr>
+			<th>Nombre Corto</th>
+			<th>Nombre</th>
+			<th>Acciones</th>
+		</tr>
+		<tr ng-repeat="servicio in servicios">
+			<td>{{grupo.shortname}}</td>
+			<td>{{grupo.nombre}}</td>
+			<td>
+				<div class="btn" href="" ng-click="editServicio($index)"><span class="glyphicon glyphicon-pencil"></span></div>
+				<div class="btn" href="" ng-click="removeServicio($index)"><span class="glyphicon glyphicon-trash"></span></div>
+			</td>
+		</tr>
+	</table>
+</div>

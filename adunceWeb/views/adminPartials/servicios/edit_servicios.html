@@ -1,0 +1,32 @@
+<div class="panel-heading centered">
+	Editar Servicio
+</div>
+<div class="panel-body">
+	<form name="addGrupoForm" ng-submit="addGrupo()">
+		
+		<div class="form-group">
+			<label for="descripcion">Descripción</label>
+			<input type="text" class="form-control" ng-model="newServicio.descripcion" name="descripcion" id="descripcion" required/>
+		</div>
+		
+		<div class="form-group">
+			<label for="imagen">Imagen</label>
+			<input type="text" class="form-control" ng-model="newServicio.imagen" name="imagen" id="imagen" required/>
+		</div>
+		
+		<div class="form-group">
+			<label for="nombre">Nombre</label>
+			<input type="text" class="form-control" ng-model="newServicio.nombre" name="nombre" id="nombre" required/>
+		</div>
+		
+		<div class="form-group">	
+			<div class="col-md-2">
+				<input class="btn btn-default" type="submit" value="Agregar Grupo"></input>
+			</div>
+			<div class="col-md-9">
+				<cmp-alert status="status">{{actualMsg}}</cmp-alert>
+			</div>
+		</div>
+	</form>
+	
+</div>
