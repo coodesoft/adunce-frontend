@@ -77,7 +77,7 @@ app.controller("GruposAdmController", function($scope, gruposFactory){
 			alert(data+ ' : Se produjo un error al realizar la petición');
 		})
 		 
-		}
+	}
 	
 	$scope.editGrupo = function(index){ 
 		gruposFactory.getGrupo($scope.grupos[index].shortname).success(function(data){

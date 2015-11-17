@@ -1,0 +1,72 @@
+<div class="panel-heading centered">
+	Generar documento de novedades
+</div>
+<div class="panel-body">
+	<div class="row">
+		
+		<div class="col-md-10 col-md-offset-1">
+			<div class="row">
+				<lable class="col-md-1" for="search">Buscar:</lable>
+				<div class="col-md-11">
+					<input id="search" class="form-control" type="search" ng-model="q" placeholder="Juan Perez" aria-label="filtrar afiliado"/>
+				</div>
+			</div>
+			
+			<div id="afiliadosList" class="row afiliados-list" ng-init="getAfiliados()">
+				
+				<table id="afiliadosTable" class="table table-striped table-condensed" style="width:100%">
+					<tr>
+						<th>Nombre</th>
+						<th>Apellido</th>
+						<th>Agregar</th>
+					</tr>
+					<tr ng-repeat="afiliado in afiliados | filter:q as results" class="{{processAfiliadoString(afiliado.nombre)}}_{{afiliado.apellido}}" data-nombre="{{afiliado.nombre}}" data-apellido="{{afiliado.apellido}}">
+						<td>{{afiliado.nombre}}</td>
+						<td>{{afiliado.apellido}}</td>	
+						<td> <input type="checkbox" />	</td>
+					</tr>
+				</table>	
+				<!-- 
+				<ul>
+					<li ng-repeat="afiliado in afiliados | filter:q as results" ng-click="toggle = !toggle" ng-class="{'active' : toggle}" data-position="{{$index}}">
+						<div class="afiliado">
+							<span class="afiliado-field">{{afiliado.nombre}}</span>
+							<span class="afiliado-field">{{afiliado.apellido}}</span>
+						</div>
+					</li>
+				</ul>
+				 -->
+			</div>
+		</div>
+		
+	</div>
+	
+	<div class="row">
+		<div class="col-md-6">
+			<button class="btn btn-default" id="generateNewsFile">Generar Archivo de novedades</button>
+			<div id="newsFile"></div>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-md-12">
+			<table id="newsTable" class="table table-striped table-condensed" style="width:100%">
+				<thead>
+					<tr>
+						<th>Legajo</th>
+						<th>Apellido</th>
+						<th>Nombre</th>
+						<th>Tipo de Documento</th>
+						<th>N° de Documento</th>
+						<th>Importe</th>
+						<th>Código de Concepto</th>
+						<th>N° de CUIL</th>
+						<th>Tipo de novedad</th>
+					</tr>
+				</thead>
+				<tbody></tbody>
+			</table>	
+		</div>
+	</div>
+	
+</div>

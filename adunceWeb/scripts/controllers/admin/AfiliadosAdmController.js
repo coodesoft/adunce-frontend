@@ -9,7 +9,9 @@
 		 * */
 		$scope.edit = angular.isDefined($scope.edit) ? $scope.edit : false;
 
-		$scope.afiliados = {};
+		$scope.visual = {};
+		
+		$scope.afiliados = [];
 		$scope.activeAfiliado = {};
 		$scope.grupos = {};
 		$scope.newAfiliado = {};
@@ -26,7 +28,51 @@
 		                 		"value":"Femenino",
 		                 	}
 		                 ];
+		
+		$scope.msg = {
+				'saveE' : 'Se produjo un error al agregar un nuevo grupo',
+				'saveS': 'Se guardó con éxito el nuevo grupo',
+				'getE' : 'Se produjo un error al listar los grupos',
+		}
+		$scope.actualMsg;
 
+		$scope.getGrupos = function(){
+			gruposFactory.getGrupos().success(function(data){
+				$scope.grupos = data;
+			}).error(function(data){
+				$scope.grupos = {};
+			})
+		}
+
+		
+		$scope._dataSaved = function(){
+			$scope.actualMsg = $scope.msg.saveS;
+			$scope.success = true;
+			$scope.status = 'success';
+		}
+		
+		$scope._dataNotSaved = function(){
+			$scope.actualMsg = $scope.msg.saveE;
+			$scope.status = 'showMSG';
+		}
+		
+		
+		$scope.getAfiliados = function(){
+			afiliadosFactory.getAfiliados().success(function(data){
+				$scope.afiliados = data;
+			}).error(function(data){
+				$scop.afiliados = {};
+			})
+		}
+		
+		$scope.getGrupos = function(){
+			gruposFactory.getGrupos().success(function(data){
+				$scope.grupos=data;
+			}).error(function(data){
+				$scope.grupos={};
+			});
+		}
+		
 		$scope.addHijo = function(){
 			$scope.newHijo.pariente = $scope.newAfiliado.username;
 			$scope.newAfiliado.hijos.push($scope.newHijo);
@@ -37,31 +83,38 @@
 			$scope.newAfiliado.hijos.splice(index,1);
 		}
 
-		afiliadosFactory.getAfiliados().success(function(data){
-			$scope.afiliados=data;
-		}).error(function(data){
-			$scope.afiliados={};
-		});
-
-		gruposFactory.getGrupos().success(function(data){
-			$scope.grupos=data;
-		}).error(function(data){
-			$scope.grupos={};
-		});
-
+		
 		$scope.addAfiliado = function(){
-			if(afiliadosFactory.isEditModeActive()){
-				afiliadosFactory.deactivateEditMode();
-				afiliadosFactory.saveAfiliado($scope.newAfiliado).success(function(data){
-					console.log(data);
+			if(afiliadosFactory.isEditModeOn()){
+				afiliadosFactory.editModeOff();
+				afiliadosFactory.saveAfiliado($scope.newAfiliado).success(function(data, textStatus){
+					
+					if (textStatus == '200'){
+						$scope._dataSaved();
+						delete $scope.$parent.newAfiliado;
+					} else{
+						$scope._dataNotSaved();
+					}
+					
+					$scope.$broadcast('showMSG');
+					
 				}).error(function(data){
-					//alert("Error");
+					alert('Se produjo un error al realizar la petición');
+					console.log(data)
 				});
 			} else{
-				afiliadosFactory.addAfiliado($scope.newAfiliado).success(function(data){
-					//$scope.cargarAfiliados();
+				actualizarAfiliado();
+				afiliadosFactory.addAfiliado($scope.newAfiliado).success(function(data, textStatus){
+					if (textStatus == '200')
+						$scope._dataSaved();
+					else
+						$scope._dataNotSaved();
+					
+					$scope.$broadcast('showMSG');
+					
 				}).error(function(data){
-					alert(data);
+					alert('Se produjo un error al realizar la petición');
+					console.log(data)
 				});
 			}
 			$scope.newAfiliado = {};
@@ -76,28 +129,39 @@
 
 		};
 
-		actualizarAfiliado = function(afiliado){
-			$scope.newAfiliado=afiliado;
-			if ($scope.newAfiliado.hijos ==null)
+		actualizarAfiliado = function(){
+			if ($scope.newAfiliado.hijos == null)
 				$scope.newAfiliado.hijos = [];
-			if ($scope.newAfiliado.grupos ==null)
+			if ($scope.newAfiliado.grupos == null)
 				$scope.newAfiliado.grupos = [];
 		}
 
 		$scope.editAfiliado = function(index){
 			afiliadosFactory.getAfiliado($scope.afiliados[index].username).success(function(data){
+				$scope.newAfiliado=data;
 				actualizarAfiliado(data);
-				// $scope.activeAfiliado=data;
-				// $scope.edit=true;
-				afiliadosFactory.activateEditMode();
+				
+				$scope.$parent.newAfiliado = {};
+				$scope.$parent.newAfiliado = data;
+				afiliadosFactory.editModeOn();
+				
 				$scope.showSection('EditarAfiliados');
 			}).error(function(data){
-				//alert("Error");
+				alert(data+ ' : Se produjo un error al realizar la petición');
 			});
 		};
 
+		if ($scope.$parent.newAfiliado != undefined){
+			$scope.newAfiliado = $scope.$parent.newAfiliado;
+		}
 
-
+		
+		$scope.processAfiliadoString = function(afiliado){
+			return afiliado.replace(/ /gi, "_");
+		}
+		
+		
+		
 		/*
 		 * End initialization
 		 */
@@ -134,5 +198,8 @@
 		    formatYear: 'yy',
 		    startingDay: 1
 		  };
-
+		  
+		  
+		  $scope.visual.checkbox='checked';
+		  
 	});

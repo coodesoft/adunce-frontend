@@ -9,15 +9,15 @@ app.factory('afiliadosFactory', ['$http', function($http){
 	
 	afiliadosFactory._url = app.server + '/REST/afiliados';
 	
-	afiliadosFactory.activateEditMode = function(){
+	afiliadosFactory.editModeOn = function(){
 		afiliadosFactory._editMode = true;
 	};
 	
-	afiliadosFactory.deactivateEditMode = function(){
+	afiliadosFactory.editModeOff = function(){
 		afiliadosFactory._editMode = false;
 	}
 
-	afiliadosFactory.isEditModeActive = function(){
+	afiliadosFactory.isEditModeOn = function(){
 		return afiliadosFactory._editMode;
 	}
 	

@@ -23,7 +23,7 @@
 			<label for="email">Email:</label>
 			<input class="form-control" type="email" id="email" name="email" ng-model="newAfiliado.email" placeholder="email@example.com" required/>
 		</div>
-		<div class="form-group">
+		<div class="form-group" ng-init="getGrupos()">
 			<label for="grupos">Grupos</label>
 			<ui-select name="grupos" id="grupos" multiple ng-model="newAfiliado.grupos">
 				<ui-select-match placeholder="">{{$item.shortname}} - {{$item.nombre}}</ui-select-match>
@@ -83,8 +83,14 @@
 				</tbody>
 			</table>
 		</div>
-		<div class="form-group">
-			<input class="btn btn-default" type="submit" value="Agregar Afiliado"></button>
-		</div>
+
+		<div class="form-group">	
+			<div class="col-md-2">
+				<input class="btn btn-default" type="submit" value="Agregar Afiliado"></input>
+			</div>
+			<div class="col-md-9">
+				<cmp-alert status="status">{{actualMsg}}</cmp-alert>
+			</div>
+		</div>		
 	</form>
 </div>

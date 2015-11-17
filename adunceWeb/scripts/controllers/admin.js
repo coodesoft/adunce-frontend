@@ -9,6 +9,7 @@
 			        'actions' : [
 			                     { 'name' : 'Listar', 'icon':'glyphicon glyphicon-align-justify' },
 			                     { 'name' : 'Agregar', 'icon':'glyphicon glyphicon-plus' },
+			                     { 'name' : 'Prestamos', 'icon':'glyphicon glyphicon-bitcoin' },
 			                    ],
 			        'status': 'active',
 				},

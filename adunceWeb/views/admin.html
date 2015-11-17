@@ -24,6 +24,10 @@
 						      	<edit-afiliado></edit-afiliado>
 						    </div>
 							
+							<div class="animate-switch" ng-switch-when="PrestamosAfiliados">
+						      	<loans-afiliados></loans-afiliados>
+						    </div>
+							
 							<div class="animate-switch" ng-switch-when="ListarGrupos">
 						      	<list-grupos></list-grupos>
 						    </div>						    
@@ -35,6 +39,15 @@
 							<div class="animate-switch" ng-switch-when="EditarGrupos">
 								<edit-grupos></edit-grupos>	
 						    </div>		
+
+							<div class="animate-switch" ng-switch-when="ListarServicios">
+								<list-servicios></list-servicios>
+						    </div>		
+						    
+						    <div class="animate-switch" ng-switch-when="AgregarServicios">
+								<add-servicios></add-servicios>
+						    </div>		
+						    
 						    
 						    <div class="animate-switch" ng-switch-default>default</div>
 			  			</div>

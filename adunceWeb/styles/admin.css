@@ -9,3 +9,7 @@ html{height:100%}
 #dashboard .dash-body .dash-icon{margin-right:7px}
 #dashboard .dash-body .active{background:#1c272d;font-weight:bold;color:#e3e3e3}
 #rightPane{padding-left:0}
+#afiliadosList{margin-top:20px;border:1px solid #808080;background:WhiteSmoke;overflow:auto;max-height:500px;height:250px}#afiliadosList table{cursor:pointer}#afiliadosList table td,#afiliadosList table th{text-align:center}
+#afiliadosList ul{padding:5px;list-style-position:inside;list-style-type:none;margin-top:10px}#afiliadosList ul li{padding:5px 0 5px 30px;border-bottom:1px solid #ccc}#afiliadosList ul li:first-child{border-top:1px solid #ccc}
+#afiliadosList ul li:nth-child(odd){background-color:#fff}
+#newsTable{text-align:center}

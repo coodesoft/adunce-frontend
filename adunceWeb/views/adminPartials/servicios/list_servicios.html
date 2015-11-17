@@ -14,8 +14,8 @@
 			<th>Acciones</th>
 		</tr>
 		<tr ng-repeat="servicio in servicios">
-			<td>{{grupo.shortname}}</td>
-			<td>{{grupo.nombre}}</td>
+			<td>{{servicio.codigo}}</td>
+			<td>{{servicio.nombre}}</td>
 			<td>
 				<div class="btn" href="" ng-click="editServicio($index)"><span class="glyphicon glyphicon-pencil"></span></div>
 				<div class="btn" href="" ng-click="removeServicio($index)"><span class="glyphicon glyphicon-trash"></span></div>
