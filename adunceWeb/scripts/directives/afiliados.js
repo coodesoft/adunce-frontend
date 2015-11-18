@@ -74,8 +74,6 @@ app.directive("loansAfiliados", function(){
 			$('body').off('click', '#afiliadosTable input[type="checkbox"]');
 			$('body').on('click', '#afiliadosTable input[type="checkbox"]',function(){
 				var parent = $(this).parent().parent();
-			//	var importeInput = parent.find('input[type="text"]');
-				console.log(parent.attr('class')+" "+$(this).attr('type'));
 				if ($(this).is(':checked')){
 					var afiliado = { 
 							'nombre': parent.attr('data-nombre'),
@@ -83,17 +81,17 @@ app.directive("loansAfiliados", function(){
 					}
 					var row = buildAfiliadoRow(afiliado, parent.attr('class'));
 					$('#newsTable tbody').append(row);
-					//console.log(afiliado);
 				} else{
 					$('#newsTable tr.'+parent.attr('class')).remove();
 				}
-			})
+			});
+			
 			$('body').off('click', '#generateNewsFile');
 			$('body').on('click', '#generateNewsFile', function(){
 				var result = [],
 					url = null,
 					longs = [6, 20, 20, 4, 9, 10, 4, 11, 1];
-				
+				$('#newsFile a').remove();
 				$('#newsTable tbody>tr').each(function(){
 					
 					var datos = [
@@ -116,7 +114,7 @@ app.directive("loansAfiliados", function(){
 						
 						if (longMaxima<element.length){
 							for(j=0; j<longMaxima; j++)
-								datos+= element[j];
+								data+= element[j];
 						} else{
 							data+=element;
 							for(j=0; j<longMaxima-element.length; j++)
