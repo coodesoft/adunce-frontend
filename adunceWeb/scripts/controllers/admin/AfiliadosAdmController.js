@@ -10,7 +10,7 @@
 		$scope.edit = angular.isDefined($scope.edit) ? $scope.edit : false;
 
 		$scope.visual = {};
-		
+
 		$scope.afiliados = [];
 		$scope.activeAfiliado = {};
 		$scope.grupos = {};
@@ -28,7 +28,7 @@
 		                 		"value":"Femenino",
 		                 	}
 		                 ];
-		
+
 		$scope.msg = {
 				'saveE' : 'Se produjo un error al agregar un nuevo grupo',
 				'saveS': 'Se guardó con éxito el nuevo grupo',
@@ -44,19 +44,19 @@
 			})
 		}
 
-		
+
 		$scope._dataSaved = function(){
 			$scope.actualMsg = $scope.msg.saveS;
 			$scope.success = true;
 			$scope.status = 'success';
 		}
-		
+
 		$scope._dataNotSaved = function(){
 			$scope.actualMsg = $scope.msg.saveE;
 			$scope.status = 'showMSG';
 		}
-		
-		
+
+
 		$scope.getAfiliados = function(){
 			afiliadosFactory.getAfiliados().success(function(data){
 				$scope.afiliados = data;
@@ -64,7 +64,7 @@
 				$scop.afiliados = {};
 			})
 		}
-		
+
 		$scope.getGrupos = function(){
 			gruposFactory.getGrupos().success(function(data){
 				$scope.grupos=data;
@@ -72,9 +72,10 @@
 				$scope.grupos={};
 			});
 		}
-		
+
 		$scope.addHijo = function(){
-			$scope.newHijo.pariente = $scope.newAfiliado.username;
+			pariente = {"username": $scope.newAfiliado.username};
+			$scope.newHijo.pariente = pariente;
 			$scope.newAfiliado.hijos.push($scope.newHijo);
 			$scope.newHijo = {};
 		}
@@ -83,21 +84,22 @@
 			$scope.newAfiliado.hijos.splice(index,1);
 		}
 
-		
+
 		$scope.addAfiliado = function(){
 			if(afiliadosFactory.isEditModeOn()){
 				afiliadosFactory.editModeOff();
+				cosole.log(newAfiliado);
 				afiliadosFactory.saveAfiliado($scope.newAfiliado).success(function(data, textStatus){
-					
+
 					if (textStatus == '200'){
 						$scope._dataSaved();
 						delete $scope.$parent.newAfiliado;
 					} else{
 						$scope._dataNotSaved();
 					}
-					
+
 					$scope.$broadcast('showMSG');
-					
+
 				}).error(function(data){
 					alert('Se produjo un error al realizar la petición');
 					console.log(data)
@@ -109,9 +111,9 @@
 						$scope._dataSaved();
 					else
 						$scope._dataNotSaved();
-					
+
 					$scope.$broadcast('showMSG');
-					
+
 				}).error(function(data){
 					alert('Se produjo un error al realizar la petición');
 					console.log(data)
@@ -140,11 +142,11 @@
 			afiliadosFactory.getAfiliado($scope.afiliados[index].username).success(function(data){
 				$scope.newAfiliado=data;
 				actualizarAfiliado(data);
-				
+
 				$scope.$parent.newAfiliado = {};
 				$scope.$parent.newAfiliado = data;
 				afiliadosFactory.editModeOn();
-				
+
 				$scope.showSection('EditarAfiliados');
 			}).error(function(data){
 				alert(data+ ' : Se produjo un error al realizar la petición');
@@ -155,13 +157,13 @@
 			$scope.newAfiliado = $scope.$parent.newAfiliado;
 		}
 
-		
+
 		$scope.processAfiliadoString = function(afiliado){
 			return afiliado.replace(/ /gi, "_");
 		}
-		
-		
-		
+
+
+
 		/*
 		 * End initialization
 		 */
@@ -198,8 +200,8 @@
 		    formatYear: 'yy',
 		    startingDay: 1
 		  };
-		  
-		  
+
+
 		  $scope.visual.checkbox='checked';
-		  
+
 	});
