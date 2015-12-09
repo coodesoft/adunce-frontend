@@ -11,6 +11,17 @@
 
 		$scope.visual = {};
 
+		$scope.csv = {
+			content: null,
+			header: true,
+			headerVisible: false;
+			separator: ',',
+			separatorVisible: true,
+			result: null,
+			encoding: 'ISO-8859-1',
+			encodingVisible: true,
+		};
+
 		$scope.afiliados = [];
 		$scope.activeAfiliado = {};
 		$scope.grupos = {};
@@ -203,5 +214,6 @@
 
 
 		  $scope.visual.checkbox='checked';
+
 
 	});

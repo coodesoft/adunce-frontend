@@ -7,13 +7,14 @@
 				'Afiliados': {
 			        'icon': 'glyphicon glyphicon-user',
 			        'actions' : [
-			                     { 'name' : 'Listar', 'icon':'glyphicon glyphicon-align-justify' },
-			                     { 'name' : 'Agregar', 'icon':'glyphicon glyphicon-plus' },
-			                     { 'name' : 'Prestamos', 'icon':'glyphicon glyphicon-bitcoin' },
+			                     { id: 'Listar', 'name' : 'Listar', 'icon':'glyphicon glyphicon-align-justify' },
+			                     { id: 'Agregar', 'name' : 'Agregar', 'icon':'glyphicon glyphicon-plus' },
+			                     { id: 'Prestamos', 'name' : 'Prestamos', 'icon':'glyphicon glyphicon-bitcoin' },
+													 { id: 'CargaMasiva', 'name' : 'Carga Masiva', 'icon':'glyphicon glyphicon-bitcoin' },
 			                    ],
 			        'status': 'active',
 				},
-				'Servicios': { 
+				'Servicios': {
 			        'icon': 'glyphicon glyphicon-flash',
 				    'actions' : [
 				                 { 'name' : 'Listar','icon':'glyphicon glyphicon-align-justify'  },
@@ -27,16 +28,16 @@
 				              	   { 'name' : 'Listar', 'icon':'glyphicon glyphicon-align-justify' },
 				              	   { 'name' : 'Agregar', 'icon':'glyphicon glyphicon-plus' },
 				                 ],
-				    'status': ''			    
+				    'status': ''
 				 },
 		};
-				
+
 		$scope.changeSectionStatus = function(key){
 
 			if ($scope.sections[key].status == 'active')
 				$scope.sections[key].status = '';
 			else
-				$scope.sections[key].status = 'active';	
+				$scope.sections[key].status = 'active';
 
 			for(var section in $scope.sections){
 				if (section != key){
@@ -45,8 +46,8 @@
 				}
 			}
 		}
-		
-		
+
+
 		$scope.showSection = function(section){
 			$scope.activeSection = section;
 		};
@@ -62,5 +63,5 @@
 	    		$scope.afiliados = data;
 	    	});
 	    };
-	    
+
 });

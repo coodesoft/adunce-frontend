@@ -12,17 +12,18 @@ var app = angular.module('MainApp', [
                                      'ngRoute',
                                      'ui.bootstrap',
                                      'ngSanitize',
-                                     'ui.select'
+                                     'ui.select',
+                                     'ngCsvImport'
                                   ]);
 app.server = "http://localhost:8080/gestion"
-	
+
 app.tpl = {
 		'afiliados' : 'views/adminPartials/afiliados/',
 		'servicios' : 'views/adminPartials/servicios/',
 		'components': 'views/adminPartials/components/',
 		'grupos'	: 'views/adminPartials/grupos/',
 }
-	
+
 app.config(function($routeProvider){
     	   $routeProvider
     	   	.when('/admin', {
@@ -44,5 +45,5 @@ app.config(function($routeProvider){
     		 templateUrl: 'views/user.html',
     		 controller: 'UserController',
     		 controllerAs: 'user'
-    	 }) 
+    	 })
        });

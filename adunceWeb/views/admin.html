@@ -1,54 +1,57 @@
 <section id="adminArea">
 	<div class="container-full">
-		
+
 		<cmp-dashboard></cmp-dashboard>
-		
+
 		<div id="rightPane" ng-class="{'col-md-10':dashVisible, 'col-lg-10':dashVisible, 'col-md-12':!dashVisible, 'col-lg-12':!dashVisible}">
 			 <cmp-nav-dash></cmp-nav-dash>
-			
+
 			<div>
 				<div class="col-md-12 col-lg-12" >
 					<div class="panel panel-active">
 						<!-- ng-controller="AfiliadosAdmController" -->
 						<div  class="animate-switch-container" ng-switch on="activeSection">
-						    
+
 						    <div class="animate-switch" ng-switch-when="ListarAfiliados">
 						      	<afiliados-list></afiliados-list>
 						    </div>
-						    
+
 						    <div class="animate-switch" ng-switch-when="AgregarAfiliados">
 						      	<add-afiliado></add-afiliado>
 						    </div>
-							
+
 							<div class="animate-switch" ng-switch-when="EditarAfiliados">
 						      	<edit-afiliado></edit-afiliado>
 						    </div>
-							
+
 							<div class="animate-switch" ng-switch-when="PrestamosAfiliados">
 						      	<loans-afiliados></loans-afiliados>
-						    </div>
-							
+						  </div>
+							<div class="animate-switch" ng-switch-when="CargaMasivaAfiliados">
+						      	<massive-load-afiliados></massive-load-afiliados>
+						  </div>
+
 							<div class="animate-switch" ng-switch-when="ListarGrupos">
 						      	<list-grupos></list-grupos>
-						    </div>						    
+						    </div>
 
 							<div class="animate-switch" ng-switch-when="AgregarGrupos">
 						      	<add-grupos></add-grupos>
-						    </div>		
-							
+						    </div>
+
 							<div class="animate-switch" ng-switch-when="EditarGrupos">
-								<edit-grupos></edit-grupos>	
-						    </div>		
+								<edit-grupos></edit-grupos>
+						    </div>
 
 							<div class="animate-switch" ng-switch-when="ListarServicios">
 								<list-servicios></list-servicios>
-						    </div>		
-						    
+						    </div>
+
 						    <div class="animate-switch" ng-switch-when="AgregarServicios">
 								<add-servicios></add-servicios>
-						    </div>		
-						    
-						    
+						    </div>
+
+
 						    <div class="animate-switch" ng-switch-default>default</div>
 			  			</div>
 	  				</div>
