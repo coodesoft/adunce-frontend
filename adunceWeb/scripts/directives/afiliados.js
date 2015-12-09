@@ -56,29 +56,38 @@ app.directive("loansAfiliados", function(){
 			
 			
 			function buildAfiliadoRow(afiliado, ctrl){
-				var tr = '<tr class="'+ctrl+'"><td class="legajo">-</td>';
+				var cuil = afiliado.cuil.split('-');
+				var dni = cuil[1];
+				cuil = cuil[0] + cuil[1] + cuil[2];
+				
+				var tr = '<tr class="'+ctrl+'"><td class="legajo">'+afiliado.legajo+'</td>';
 				tr+= '<td class="apellido">'+afiliado.apellido+'</td>';
 				tr+= '<td class="nombre">'+afiliado.nombre+'</td>';
 				tr+= '<td class="documento"><select>';
 				tr+= '<option value="DNI">DNI</option><option value="CI">CI</option><option value="LE">LE</option><option value="LC">LC</option>';
 				tr+= '</select></td>';
-				tr+= '<td class="nDocumento">-</td>';
+				tr+= '<td class="nDocumento">'+dni+'</td>';
 				tr+= '<td class="importe"><input class="importeInput" value="$0.0" type="text" /></td>';
-				tr+= '<td class="concepto">-</td>';
-				tr+= '<td class="cuil">-</td>';
+				tr+= '<td class="concepto">0399</td>';
+				tr+= '<td class="cuil">'+cuil+'</td>';
 				tr+= '<td class="novedad">-</td>';
 				tr+= '</tr>';
 
 				return tr;
 			}
+			
 			$('body').off('click', '#afiliadosTable input[type="checkbox"]');
 			$('body').on('click', '#afiliadosTable input[type="checkbox"]',function(){
 				var parent = $(this).parent().parent();
 				if ($(this).is(':checked')){
 					var afiliado = { 
-							'nombre': parent.attr('data-nombre'),
-							'apellido': parent.attr('data-apellido')
+							'nombre': parent.data('nombre'),
+							'apellido': parent.data('apellido'),
+							'legajo': parent.data('legajo'),
+							'cuil': parent.data('cuil')
 					}
+					console.log(afiliado);
+
 					var row = buildAfiliadoRow(afiliado, parent.attr('class'));
 					$('#newsTable tbody').append(row);
 				} else{
@@ -101,7 +110,7 @@ app.directive("loansAfiliados", function(){
 					             $(this).find('.documento select').val(),
 					             $(this).children('.nDocumento').text(),
 					             $(this).find('.importe input').val(),
-					             $(this).children('.concepto').text(),
+					             "0399",
 					             $(this).children('.cuil').text(),
 					             $(this).children('.novedad').text(),
 					             ],
