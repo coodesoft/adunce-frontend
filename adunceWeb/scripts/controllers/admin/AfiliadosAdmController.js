@@ -11,6 +11,17 @@
 
 		$scope.visual = {};
 
+		$scope.csv = {
+			content: null,
+			header: true,
+			headerVisible: false;
+			separator: ',',
+			separatorVisible: true,
+			result: null,
+			encoding: 'ISO-8859-1',
+			encodingVisible: true,
+		};
+
 		$scope.afiliados = [];
 		$scope.activeAfiliado = {};
 		$scope.grupos = {};
@@ -88,7 +99,6 @@
 		$scope.addAfiliado = function(){
 			if(afiliadosFactory.isEditModeOn()){
 				afiliadosFactory.editModeOff();
-				cosole.log(newAfiliado);
 				afiliadosFactory.saveAfiliado($scope.newAfiliado).success(function(data, textStatus){
 
 					if (textStatus == '200'){
@@ -203,5 +213,6 @@
 
 
 		  $scope.visual.checkbox='checked';
+
 
 	});
