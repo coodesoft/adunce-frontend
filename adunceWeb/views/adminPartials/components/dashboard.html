@@ -1,6 +1,6 @@
 <div id="dashboard" ng-class="{'col-md-2':dashVisible, 'col-lg-2':dashVisible, 'hidden':!dashVisible, 'hidden':!dashVisible}">
 	<nav class="navbar navbar-inverse">
-		<p>ADUNCe</p> 
+		<p>ADUNCe</p>
 	</nav>
 
 	<div class="dash-body">
@@ -10,7 +10,7 @@
 					<span class="dash-icon {{section.icon}}"></span>{{key}}
 				</div>
 				<ul class="action-container" ng-class="{'collapsed':!section.status, 'no-collapsed':section.status}">
-					<li ng-click="showSection(action.name+key)" class="action" ng-repeat="action in section.actions">
+					<li ng-click="showSection(action.id+key)" class="action" ng-repeat="action in section.actions">
 						<span class="dash-icon {{action.icon}}"></span>
 						<div class="action-item">{{action.name}}</div>
 					</li>

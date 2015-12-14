@@ -53,13 +53,13 @@ app.directive("loansAfiliados", function(){
 		link: function($scope, element, attrs){
 			$scope.$emit('loaded', element.parents('#rightPane').height());
 			$scope.visual.afiliados = [];
-			
-			
+
+
 			function buildAfiliadoRow(afiliado, ctrl){
 				var cuil = afiliado.cuil.split('-');
 				var dni = cuil[1];
 				cuil = cuil[0] + cuil[1] + cuil[2];
-				
+
 				var tr = '<tr class="'+ctrl+'"><td class="legajo">'+afiliado.legajo+'</td>';
 				tr+= '<td class="apellido">'+afiliado.apellido+'</td>';
 				tr+= '<td class="nombre">'+afiliado.nombre+'</td>';
@@ -75,7 +75,7 @@ app.directive("loansAfiliados", function(){
 
 				return tr;
 			}
-			
+
 			$('body').off('click', '#afiliadosTable input[type="checkbox"]');
 			$('body').on('click', '#afiliadosTable input[type="checkbox"]',function(){
 				var parent = $(this).parent().parent();
@@ -94,7 +94,7 @@ app.directive("loansAfiliados", function(){
 					$('#newsTable tr.'+parent.attr('class')).remove();
 				}
 			});
-			
+
 			$('body').off('click', '#generateNewsFile');
 			$('body').on('click', '#generateNewsFile', function(){
 				var result = [],
@@ -102,7 +102,7 @@ app.directive("loansAfiliados", function(){
 					longs = [6, 20, 20, 4, 9, 10, 4, 11, 1];
 				$('#newsFile a').remove();
 				$('#newsTable tbody>tr').each(function(){
-					
+
 					var datos = [
 					             $(this).children('.legajo').text(),
 					             $(this).children('.apellido').text(),
@@ -116,11 +116,11 @@ app.directive("loansAfiliados", function(){
 					             ],
 					    data="",
 					    i=0;
-					
+
 					datos.forEach(function(element, index, array){
-					
+
 						var longMaxima = longs[index];
-						
+
 						if (longMaxima<element.length){
 							for(j=0; j<longMaxima; j++)
 								data+= element[j];
@@ -131,11 +131,11 @@ app.directive("loansAfiliados", function(){
 						}
 						i++
 					})
-					
+
 					result.push(data+"\n");
 				});
 				var file = new Blob(result, {type : 'text/html'});
-				
+
 				if (url !== null) {
 				      window.URL.revokeObjectURL(url);
 				    }
@@ -145,6 +145,16 @@ app.directive("loansAfiliados", function(){
 			})
 		}
 	}
-})
+});
 
+app.directive("massiveLoadAfiliados", function() {
 
+	return {
+		restrict: 'E',
+		templateUrl: app.tpl.afiliados + 'massive_load_afiliados.html',
+		controller: "AfiliadosAdmController",
+		link: function(scope, element, attrs){
+			scope.$emit('loaded', element.parents('#rightPane').height());
+		}
+	};
+});
