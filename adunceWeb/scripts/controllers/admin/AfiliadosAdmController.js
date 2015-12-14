@@ -14,7 +14,7 @@
 		$scope.csv = {
 			content: null,
 			header: true,
-			headerVisible: false;
+			headerVisible: false,
 			separator: ',',
 			separatorVisible: true,
 			result: null,
