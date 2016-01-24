@@ -214,5 +214,65 @@
 
 		  $scope.visual.checkbox='checked';
 
+			$scope.loadData = function(){
+					$scope.listaAfiliados = $scope.csv.result;
+			};
+
+			$scope.$watch('csv.result',function (newValue, oldValue) {
+				if (newValue!=null){
+					$scope.tmpUser=new Array();
+					for(index in newValue){
+						af=newValue[index];
+						newAfiliado = {
+						  "username": "",
+						  "enabled": false,
+						  "password": "",
+						  "email": "",
+						  "nombre": "",
+						  "apellido": "",
+						  "fechaAfiliacion": "",
+						  "correoElectronico": "",
+						  "familiarACargo": false,
+						  "tieneVehiculo": false,
+						  "cantidadHijos": 0,
+
+						};
+						nombre=$scope.accentsTidy(af.nombre.split(' ')[0]);
+						apellido=$scope.accentsTidy(af.apellido.split(' ')[0]);
+						newAfiliado.username=nombre.substring(0,1) + apellido;
+						newAfiliado.password=nombre.substring(0,1) + apellido;
+						af.username=newAfiliado.username;
+						$scope.tmpUser[index]=af.username;
+						if((af.datos_hijos!=null)&&(af.datos_hijos!="")){
+							hijos = af.datos_hijos.split(';');
+							af.datos_hijos=new Array(hijos.length);
+							for (hijo in hijos){
+								aux=new Object();
+								datos = hijos[hijo].split(',');
+								aux.fecha=datos[0].replace(/[(")]/g,'');
+								if (datos.length > 1)
+									aux.sexo=datos[1].replace(/[(")]/g,'');
+								af.datos_hijos[hijo]=aux;
+								// "hijos": [
+							  //   {
+							  //     "parentesco": "",
+							  //     "fechaNacimiento": "",
+							  //     "sexo": "",
+							  //     "id": ""
+							  //   }
+							  // ]
+							}
+						}
+					}
+				}
+			})
+
+			$scope.accentsTidy = function(s){
+			    var r = s.toLowerCase();
+			    non_asciis = {'a': '[àáâãäå]', 'ae': 'æ', 'c': 'ç', 'e': '[èéêë]', 'i': '[ìíîï]', 'n': 'ñ', 'o': '[òóôõö]', 'oe': 'œ', 'u': '[ùúûűü]', 'y': '[ýÿ]'};
+			    for (i in non_asciis) { r = r.replace(new RegExp(non_asciis[i], 'g'), i); }
+			    return r;
+			};
+
 
 	});

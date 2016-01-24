@@ -1,5 +1,5 @@
 @import "variables.less";
-  
+
 html{
 	height: 100%;
 }
@@ -12,7 +12,7 @@ html{
 	padding: 0;
 
 	nav{
-		margin-bottom: 0px; 
+		margin-bottom: 0px;
 		p{
 			height: 40px;
 			text-align: center;
@@ -23,9 +23,9 @@ html{
 	}
 	.action-container{
 		margin-left: 10%;
-		clear:both;	
+		clear:both;
 	}
-	
+
 	.dash-body{
 		background-color: @dashBackground;
 		ul{
@@ -35,12 +35,12 @@ html{
 		li{
 			list-style-position: inside;
 			list-style-type: none;
-			
+
 			.action-item{
 				display: inline-block;
 			}
 		}
-		
+
 		.action, .section{
 			color: @dashTextColor;
 			cursor: pointer;
@@ -49,34 +49,34 @@ html{
 			padding: 20px;
 			&:hover{
 				text-decoration: none;
-				
+
 			}
 		}
-		
+
 		.section{
 			border-bottom: 1px solid @dashBorder;
 			border-top: 1px solid @dashBorder;
 			margin-top: -1px;
 		}
-		
+
 		.dash-icon{
-			margin-right: 7px;	
+			margin-right: 7px;
 		}
-		
+
 		.active{
 			background: @dashActiveBackground;
 			font-weight: bold;
 			color: @dashActiveTextColor;
 		}
-		
+
 	}
-		
+
 }
 
 
 #rightPane{
 	padding-left: 0;
-} 
+}
 
 #afiliadosList{
 	margin-top: 20px;
@@ -91,7 +91,7 @@ html{
 			text-align: center;
 		}
 	}
-	
+
 	ul{
 		padding: 5px;
 		list-style-position: inside;
@@ -107,10 +107,29 @@ html{
 				background-color: @whiteRow;
 			}
 		}
-		
+
 	}
 }
 
 #newsTable{
 	text-align: center;
+}
+
+.massive-load {
+
+  .username.show {
+
+    & span.icon {
+      display: none;
+    }
+
+    &:hover{
+      cursor: pointer;
+      span.icon {
+        display: inline;
+      }
+    }
+
+  }
+
 }

@@ -1,15 +1,108 @@
-html{height:100%}
-#adminArea nav{border:0}
-#dashboard{padding:0}#dashboard nav{margin-bottom:0}#dashboard nav p{height:40px;text-align:center;font-size:25px;line-height:50px;color:#b3b3b3}
-#dashboard .action-container{margin-left:10%;clear:both}
-#dashboard .dash-body{background-color:#1c2b36}#dashboard .dash-body ul{padding:0 3px;overflow:hidden}
-#dashboard .dash-body li{list-style-position:inside;list-style-type:none}#dashboard .dash-body li .action-item{display:inline-block}
-#dashboard .dash-body .action,#dashboard .dash-body .section{color:#b3b3b3;cursor:pointer;font-size:15px;font-family:Verdana;padding:20px}#dashboard .dash-body .action:hover,#dashboard .dash-body .section:hover{text-decoration:none}
-#dashboard .dash-body .section{border-bottom:1px solid #666;border-top:1px solid #666;margin-top:-1px}
-#dashboard .dash-body .dash-icon{margin-right:7px}
-#dashboard .dash-body .active{background:#1c272d;font-weight:bold;color:#e3e3e3}
-#rightPane{padding-left:0}
-#afiliadosList{margin-top:20px;border:1px solid #808080;background:WhiteSmoke;overflow:auto;max-height:500px;height:250px}#afiliadosList table{cursor:pointer}#afiliadosList table td,#afiliadosList table th{text-align:center}
-#afiliadosList ul{padding:5px;list-style-position:inside;list-style-type:none;margin-top:10px}#afiliadosList ul li{padding:5px 0 5px 30px;border-bottom:1px solid #ccc}#afiliadosList ul li:first-child{border-top:1px solid #ccc}
-#afiliadosList ul li:nth-child(odd){background-color:#fff}
-#newsTable{text-align:center}
+html {
+  height: 100%;
+}
+#adminArea nav {
+  border: 0;
+}
+#dashboard {
+  padding: 0;
+}
+#dashboard nav {
+  margin-bottom: 0px;
+}
+#dashboard nav p {
+  height: 40px;
+  text-align: center;
+  font-size: 25px;
+  line-height: 50px;
+  color: #b3b3b3;
+}
+#dashboard .action-container {
+  margin-left: 10%;
+  clear: both;
+}
+#dashboard .dash-body {
+  background-color: #1c2b36;
+}
+#dashboard .dash-body ul {
+  padding: 0 3px;
+  overflow: hidden;
+}
+#dashboard .dash-body li {
+  list-style-position: inside;
+  list-style-type: none;
+}
+#dashboard .dash-body li .action-item {
+  display: inline-block;
+}
+#dashboard .dash-body .action,
+#dashboard .dash-body .section {
+  color: #b3b3b3;
+  cursor: pointer;
+  font-size: 15px;
+  font-family: Verdana;
+  padding: 20px;
+}
+#dashboard .dash-body .action:hover,
+#dashboard .dash-body .section:hover {
+  text-decoration: none;
+}
+#dashboard .dash-body .section {
+  border-bottom: 1px solid #666666;
+  border-top: 1px solid #666666;
+  margin-top: -1px;
+}
+#dashboard .dash-body .dash-icon {
+  margin-right: 7px;
+}
+#dashboard .dash-body .active {
+  background: #1c272d;
+  font-weight: bold;
+  color: #e3e3e3;
+}
+#rightPane {
+  padding-left: 0;
+}
+#afiliadosList {
+  margin-top: 20px;
+  border: 1px solid grey;
+  background: WhiteSmoke;
+  overflow: auto;
+  max-height: 500px;
+  height: 250px;
+}
+#afiliadosList table {
+  cursor: pointer;
+}
+#afiliadosList table td,
+#afiliadosList table th {
+  text-align: center;
+}
+#afiliadosList ul {
+  padding: 5px;
+  list-style-position: inside;
+  list-style-type: none;
+  margin-top: 10px;
+}
+#afiliadosList ul li {
+  padding: 5px 0px 5px 30px;
+  border-bottom: 1px solid #cccccc;
+}
+#afiliadosList ul li:first-child {
+  border-top: 1px solid #cccccc;
+}
+#afiliadosList ul li:nth-child(odd) {
+  background-color: #ffffff;
+}
+#newsTable {
+  text-align: center;
+}
+.massive-load .username.show span.icon {
+  display: none;
+}
+.massive-load .username.show:hover {
+  cursor: pointer;
+}
+.massive-load .username.show:hover span.icon {
+  display: inline;
+}
