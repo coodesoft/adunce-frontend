@@ -23,27 +23,33 @@ app.tpl = {
 		'components': 'views/adminPartials/components/',
 		'grupos'	: 'views/adminPartials/grupos/',
 }
+app.config(function($routeProvider,$httpProvider){
 
-app.config(function($routeProvider){
-    	   $routeProvider
-    	   	.when('/admin', {
-    	   		templateUrl: 'views/admin.html',
-    	   		controller: 'AdminController',
-    	   		controllerAs: 'admin'
-    	   	});
-    	   $routeProvider.when('/alta', {
-    	   		templateUrl: 'views/admin.html',
-    	   		controller: 'AdminController',
-    	   		controllerAs: 'admin'
-    	   	});
-         $routeProvider.when('/', {
-    	   		templateUrl: 'views/login.html',
-    	   		controller: 'UserController',
-    	   		controllerAs: 'user'
-    	   	});
-    	 $routeProvider.when('/user', {
-    		 templateUrl: 'views/user.html',
-    		 controller: 'UserController',
-    		 controllerAs: 'user'
-    	 })
-       });
+   $routeProvider
+   	.when('/admin', {
+   		templateUrl: 'views/admin.html',
+   		controller: 'AdminController',
+   		controllerAs: 'admin'
+   	});
+
+   $routeProvider.when('/alta', {
+   		templateUrl: 'views/admin.html',
+   		controller: 'AdminController',
+   		controllerAs: 'admin'
+   	});
+
+   $routeProvider.when('/', {
+   		templateUrl: 'views/login.html',
+   		controller: 'UserController',
+   		controllerAs: 'user'
+   	});
+
+	 $routeProvider.when('/user', {
+		 templateUrl: 'views/user.html',
+		 controller: 'UserController',
+		 controllerAs: 'user'
+	 });
+
+   $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
+
+});

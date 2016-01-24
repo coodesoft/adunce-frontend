@@ -1,17 +1,13 @@
 
 var app = angular.module('MainApp');
 
-app.controller('UserController', function($scope, afiliadosFactory){
+app.controller('UserController', function($scope, afiliadosFactory,userFactory){
 
 
   $scope.afiliados={};
 
-  afiliadosFactory.getAfiliados().success(function(data){
-    $scope.afiliados=data;
+  $scope.login = function(credentials){
 
-  }).error(function(data){
-    alert("fails");
-    $scope.afiliados={};
-  });
+  }
 
 });

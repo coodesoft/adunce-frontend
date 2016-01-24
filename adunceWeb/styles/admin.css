@@ -97,6 +97,16 @@ html {
 #newsTable {
   text-align: center;
 }
+.massive-load .header::offscreen {
+  position: fixed;
+  top: 0px;
+}
+.massive-load .glyphicon.icon-red {
+  color: red;
+}
+.massive-load .glyphicon.icon-green {
+  color: green;
+}
 .massive-load .username.show span.icon {
   display: none;
 }

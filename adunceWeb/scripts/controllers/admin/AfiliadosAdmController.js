@@ -29,6 +29,7 @@
 		$scope.newAfiliado.hijos = [];
 		$scope.newAfiliado.grupos = [];
 		$scope.newHijo = {};
+		$scope.massiveLoadList = [];
 		$scope.sexoOpts=[
 		                 	{
 		                 		"id":"MASCULINO",
@@ -243,26 +244,50 @@
 						newAfiliado.password=nombre.substring(0,1) + apellido;
 						af.username=newAfiliado.username;
 						$scope.tmpUser[index]=af.username;
+						newAfiliado.email=af.email;
+						newAfiliado.nombre = af.nombre;
+						newAfiliado.apellido = af.apellido;
+						datas = af.fecha.split('/');
+						if(datas.length>=3){
+							newAfiliado.fechaAfiliacion=datas[2]>20?'19':'20'+datas[2]+'-'+datas[1]+'-'+datas[0]+'T03:00:00.000Z';
+						}else{
+							newAfiliado.fechaAfiliacion='';
+						}
+						newAfiliado.correoElectronico=af.email;
+						if ((af.familiar!=null)&&(af.familiar!='')){
+							newAfiliado.familiarACargo = af.familiar=='si' ? true : false;
+						}
+						if ((af.vehiculo!=null)&&(af.vehiculo!='')){
+							newAfiliado.tieneVehiculo = af.vehiculo=='si' ? true : false;
+						}
+						newAfiliado.hijos=[];
 						if((af.datos_hijos!=null)&&(af.datos_hijos!="")){
 							hijos = af.datos_hijos.split(';');
-							af.datos_hijos=new Array(hijos.length);
+							newAfiliado.cantidadHijos=hijos.length;
 							for (hijo in hijos){
-								aux=new Object();
+								aux={
+							      "fechaNacimiento": "",
+							      "sexo": "",
+							      "id": ""
+							    }
 								datos = hijos[hijo].split(',');
-								aux.fecha=datos[0].replace(/[(")]/g,'');
-								if (datos.length > 1)
-									aux.sexo=datos[1].replace(/[(")]/g,'');
-								af.datos_hijos[hijo]=aux;
-								// "hijos": [
-							  //   {
-							  //     "parentesco": "",
-							  //     "fechaNacimiento": "",
-							  //     "sexo": "",
-							  //     "id": ""
-							  //   }
-							  // ]
+								datas = datos[0].replace(/[(")]/g,'').split('/');
+								if (datas.length>=3){
+									aux.fechaNacimiento=datas[2]>20?'19':'20'+datas[2]+'-'+datas[1]+'-'+datas[0]+'T03:00:00.000Z';
+								} else {
+									aux.fechaNacimiento='';
+								}
+								if (datos.length >1){
+									aux.sexo=datos[1].replace(/[(")]/g,'')=="M" ? 'MASCULINO' : 'FEMENINO';
+								} else {
+									aux.sexo="DESCONOCIDO";
+								}
+								newAfiliado.hijos.push(aux);
 							}
+						} else {
+							newAfiliado.cantidadHijos=0;
 						}
+						$scope.massiveLoadList.push(newAfiliado);
 					}
 				}
 			})
@@ -272,6 +297,25 @@
 			    non_asciis = {'a': '[àáâãäå]', 'ae': 'æ', 'c': 'ç', 'e': '[èéêë]', 'i': '[ìíîï]', 'n': 'ñ', 'o': '[òóôõö]', 'oe': 'œ', 'u': '[ùúûűü]', 'y': '[ýÿ]'};
 			    for (i in non_asciis) { r = r.replace(new RegExp(non_asciis[i], 'g'), i); }
 			    return r;
+			};
+
+			$scope.massiveLoadAffiliates = function (){
+
+				afiliadosFactory.massiveLoadAfiliados($scope.massiveLoadList).success(function(data, textStatus){
+
+					if (textStatus == '200'){
+						$scope._dataSaved();
+						delete $scope.massiveLoadList;
+					} else{
+						$scope._dataNotSaved();
+					}
+
+					$scope.$broadcast('showMSG');
+
+				}).error(function(data){
+					alert('Se produjo un error al realizar la petición');
+					console.log(data)
+				});
 			};
 
 
